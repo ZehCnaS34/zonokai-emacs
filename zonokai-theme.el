@@ -153,21 +153,21 @@ Takes an optional `FRAME' as reference."
        ((,class (:foreground ,zk-comments))))
 
      `(font-lock-constant-face
-       ((,class (:foreground ,cyan))))
+       ((,class (:foreground ,magenta))))
 
      `(font-lock-string-face
-       ((,class (:foreground ,magenta))))
+       ((,class (:foreground ,magenta :style :italic))))
 
      `(font-lock-keyword-face
        ((,class (:foreground ,blue
                              :weight bold))))
 
      `(font-lock-function-name-face
-       ((,class (:foreground ,red
+       ((,class (:foreground ,cyan
                  :weight bold))))
 
      `(font-lock-type-face
-       ((,class (:foreground ,orange))))
+       ((,class (:foreground ,orange :underline t))))
 
      `(font-lock-variable-name-face
        ((,class (:foreground ,green))))
