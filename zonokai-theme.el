@@ -22,18 +22,17 @@
 
 ;;; Commentary:
 ;;
-;; my peronal touch on the emacs monokai theme, with more a blue
+;; my personal touch on the emacs monokai theme, with more a blue
 ;; base to the theme, with green and different hues of blue and red
 ;; for accenting
 ;;
 ;;; Code:
 
-(require 'cl)
 (require 'dash)
+(require 'color)
 
 (unless (>= 24 emacs-major-version)
   (error "The Zonokai theme requires Emacs 24 or later!"))
-
 
 (defgroup zonokai nil
   "Zonokai theme options.
@@ -41,20 +40,20 @@ The theme will have to be reloded after changing options."
   :group 'faces
   :prefix "zk-")
 
-(defcustom zk-seed nil
-  "A string that allows you to input random characters in the \"`see'
-to allow you to modify how your theme looks"
-  :type 'string
-  :group 'zonokai)
-
-
 (deftheme zonokai "The zonokai color theme")
 
 (defun in-terminal-p ()
   "Return true if in a terminal."
   (not (display-graphic-p)))
 
-(defun create-zonokai-theme (&optional seed)
+
+(defun zonokai-color-name-to-rgb (color &optional frame)
+  (let ((valmax (float (car (color-values "#fff")))))
+    (mapcar (lambda (x) (/ x valmax)) (color-values color frame))))
+
+(color-values "white")
+
+(defun create-zonokai-theme ()
   "Create the zonokai theme.
 Takes an optional `FRAME' as reference."
   (let* ((class '((class color) (min-colors 89)))
@@ -79,9 +78,6 @@ Takes an optional `FRAME' as reference."
          (blue       "#3D7599")
          (dark-gray  "#444444")
          (lite-gray  "#eeeeee")
-
-
-
 
          ;; rainbow colors
          (rb-1 "#FF400D")
