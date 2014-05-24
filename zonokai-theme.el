@@ -22,13 +22,12 @@
 
 ;;; Commentary:
 ;;
-;; my personal touch on the emacs monokai theme, with more a blue
+;; my personal touch on the Emacs monokai theme, with more a blue
 ;; base to the theme, with green and different hues of blue and red
 ;; for accenting
 ;;
 ;;; Code:
 
-(require 'dash)
 (require 'color)
 
 (unless (>= 24 emacs-major-version)
@@ -48,6 +47,10 @@ The theme will have to be reloded after changing options."
 
 
 (defun zonokai-color-name-to-rgb (color &optional frame)
+  "Convert COLOR string to a list of RGB components.
+
+Optional arguments FRAME specifies the frame here the color is to be
+displayed.  If FRAME is omitted or nil, use the selected frame."
   (let ((valmax (float (car (color-values "#fff")))))
     (mapcar (lambda (x) (/ x valmax)) (color-values color frame))))
 
@@ -108,7 +111,7 @@ Takes an optional `FRAME' as reference."
      `(fringe ((,class (:foreground ,zk-fg
                         :background ,zk-bg))))
 
-     `(region ((,class (:background ,magenta
+     `(region ((,class (:background ,zk-hl-line
                         :foreground ,zk-fg
                         :weight bold))))
 
