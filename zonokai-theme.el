@@ -1,10 +1,17 @@
+;; Local Variables:
+;; no-bytpe-compile: t
+;; eval: (when (fboundp 'rainbow-mode) (rainbow-mode 1))
+;; End:
+
+;;; zonokai-theme.el ends here
 ;;; zonokai-theme.el --- blue based theme for emacs
 
 ;; Copyright (C) 2013-2014
 
 ;; Author: Alex Sanchez <ar.sanchez@keythings.co>
 ;; URL: http://github.com/ZehCnaS34/zonokai.git
-;; Version: 20140310.1330
+;; Version: 20140523.2151
+;; X-Original-Version: 20140310.1330
 ;; X-Original-Version: 0.2.0
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -22,12 +29,13 @@
 
 ;;; Commentary:
 ;;
-;; my personal touch on the Emacs monokai theme, with more a blue
+;; my personal touch on the emacs monokai theme, with more a blue
 ;; base to the theme, with green and different hues of blue and red
 ;; for accenting
 ;;
 ;;; Code:
 
+(require 'dash)
 (require 'color)
 
 (unless (>= 24 emacs-major-version)
@@ -47,10 +55,6 @@ The theme will have to be reloded after changing options."
 
 
 (defun zonokai-color-name-to-rgb (color &optional frame)
-  "Convert COLOR string to a list of RGB components.
-
-Optional arguments FRAME specifies the frame here the color is to be
-displayed.  If FRAME is omitted or nil, use the selected frame."
   (let ((valmax (float (car (color-values "#fff")))))
     (mapcar (lambda (x) (/ x valmax)) (color-values color frame))))
 
@@ -68,7 +72,7 @@ Takes an optional `FRAME' as reference."
          (zk-emph "#2F157F")
          (zk-comments "#00A1FF")
          (zk-cursor "#9FFF24")
-         (zk-region "#9FFF24")
+         (zk-region (color-darken-name zk-bg 10))
 
          ;; Accented colors
          (brown      "#B26800")
@@ -111,8 +115,8 @@ Takes an optional `FRAME' as reference."
      `(fringe ((,class (:foreground ,zk-fg
                         :background ,zk-bg))))
 
-     `(region ((,class (:background ,zk-hl-line
-                        :foreground ,zk-fg
+     `(region ((,class (:background ,zk-region
+                        :foreground transparent
                         :weight bold))))
 
 
