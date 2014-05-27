@@ -67,8 +67,8 @@ Takes an optional `FRAME' as reference."
          ;; BG color
          (zk-hl "#096BAA")
          (zk-fg "#eee")
-         (zk-hl-line "#1f1f7F")
          (zk-bg (color-darken-name "#032840" 5))
+         (zk-hl-line (color-darken-name zk-bg 10))
          (zk-emph "#2F157F")
          (zk-comments "#00A1FF")
          (zk-cursor "#9FFF24")
