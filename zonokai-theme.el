@@ -68,7 +68,7 @@ Takes an optional `FRAME' as reference."
          (zk-hl "#096BAA")
          (zk-fg "#eee")
          (zk-hl-line "#1f1f7F")
-         (zk-bg "#032840")
+         (zk-bg (color-darken-name "#032840" 5))
          (zk-emph "#2F157F")
          (zk-comments "#00A1FF")
          (zk-cursor "#9FFF24")
@@ -187,7 +187,7 @@ Takes an optional `FRAME' as reference."
      `(mode-line
        ((,class (:inverse-video unspecified
                  :underline unspecified
-                 :background ,magenta
+                 :background ,(color-darken-name zk-bg 10)
                  :foreground ,zk-fg
                  :weight bold
                  :box (:line-width 1 :color ,magenta :style unspecified)))))
