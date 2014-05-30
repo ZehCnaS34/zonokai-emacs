@@ -171,7 +171,7 @@ Takes an optional `FRAME' as reference."
                  :weight bold))))
 
      `(font-lock-type-face
-       ((,class (:foreground ,orange :underline t))))
+       ((,class (:foreground ,cyan :underline t))))
 
      `(font-lock-variable-name-face
        ((,class (:foreground ,green))))
