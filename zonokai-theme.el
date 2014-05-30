@@ -99,7 +99,8 @@ Takes an optional `FRAME' as reference."
      ;; basic coloring
      `(default ((,class (:foreground ,zk-fg :background ,zk-bg))))
      `(fringe  ((,class (:foreground ,zk-comments))))
-     `(shadow  ((,class (:foreground ,zk-comments))))
+     `(shadow  ((,class (:foreground ,zk-comments
+                         :background ,(color-darken-name )))))
      `(match   ((,class (:background ,zk-hl))))
      `(cursor  ((,class (:foreground nil    ;;,zk-bg
                          :background nil    ;;,zk-cursor
@@ -190,7 +191,7 @@ Takes an optional `FRAME' as reference."
                  :background ,(color-darken-name zk-bg 10)
                  :foreground ,zk-fg
                  :weight bold
-                 :box (:line-width 1 :color ,magenta :style unspecified)))))
+                 :box (:line-width 1 :color ,(color-darken-name cyan 10) :style unspecified)))))
      `(mode-line-buffer-id
        ((,class (:foreground ,zk-fg :weight bold))))
 
@@ -337,6 +338,10 @@ Takes an optional `FRAME' as reference."
 
      `(js2-function-call
        ((,class (:foreground ,green))))
+
+     ;; sp pair overlay face
+     `(sp-pair-overlay-face
+       ((,class (:background ,zk-bg))))
     )))
 
 ;;;###autoload
