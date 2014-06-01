@@ -68,7 +68,7 @@ Takes an optional `FRAME' as reference."
          (zk-hl "#096BAA")
          (zk-fg "#eee")
          (zk-bg (color-darken-name "#032840" 5))
-         (zk-hl-line (color-darken-name zk-bg 10))
+         (zk-hl-line (color-darken-name zk-bg 5))
          (zk-emph "#2F157F")
          (zk-comments "#00A1FF")
          (zk-cursor "#9FFF24")
@@ -97,252 +97,333 @@ Takes an optional `FRAME' as reference."
      'zonokai
 
      ;; basic coloring
-     `(default ((,class (:foreground ,zk-fg :background ,zk-bg))))
-     `(fringe  ((,class (:foreground ,zk-comments))))
-     `(shadow  ((,class (:foreground ,zk-comments
-                         :background ,(color-darken-name )))))
-     `(match   ((,class (:background ,zk-hl))))
-     `(cursor  ((,class (:foreground nil    ;;,zk-bg
-                         :background nil    ;;,zk-cursor
-                         :invserse-video t))))
-     `(mouse ((,class (:foreground ,zk-bg
-                 :background    ,zk-fg
-                 :inverse-video t))))
-     `(button ((,class (:background ,zk-bg
-                        :foreground ,green
-                        :weight bold
-                        :underline t))))
-     `(escape-glyph-face ((,class (:foreground ,red))))
-     `(fringe ((,class (:foreground ,zk-fg
-                        :background ,zk-bg))))
-
-     `(region ((,class (:background ,zk-region
-                        :foreground transparent
-                        :weight bold))))
-
-
+     `(highlight
+       ((,class
+         (:background ,(color-darken-name zk-bg 5)))))
+     `(default
+        ((,class
+          (:foreground ,zk-fg :background ,zk-bg))))
+     `(fringe
+       ((,class
+         (:foreground ,zk-comments))))
+     `(shadow
+       ((,class
+         (:foreground ,zk-comments :background ,zk-fg))))
+     `(match
+       ((,class
+         (:background ,zk-hl))))
+     `(cursor
+       ((,class
+         (:foreground ,zk-bg :background ,zk-cursor :invserse-video t))))
+     `(mouse
+       ((,class
+         (:foreground ,zk-bg :background ,zk-fg :inverse-video t))))
+     `(button
+       ((,class
+         (:background ,zk-bg :foreground ,green :weight bold :underline t))))
+     `(escape-glyph-face
+       ((,class
+         (:foreground ,red))))
+     `(fringe
+       ((,class
+         (:foreground ,zk-fg :background ,zk-bg))))
+     `(region
+       ((,class
+         (:background ,zk-region :foreground transparent :weight bold))))
      `(idle-highlight
-       ((,class (:foreground ,cyan
-                             :background ,blue))))
+       ((,class
+         (:foreground ,cyan
+                      :background ,blue))))
      `(hl-line
-       ((,class (:background ,zk-hl-line
-                 :foreground nil))))
+       ((,class
+         (:background ,zk-hl-line
+                      :foreground nil))))
 
 
      ;; compilation
-     `(compilation-column-face ((,class (:foreground ,cyan :underline nil))))
-     `(compilation-column-number ((,class (:foreground ,zk-bg :foreground ,cyan))))
+     `(compilation-column-face
+       ((,class
+         (:foreground ,cyan :underline nil))))
+     `(compilation-column-number
+
+       ((,class
+         (:foreground ,zk-bg :foreground ,cyan))))
 
 
      ;; diary
-     `(diary ((,class (:foreground ,yellow))))
+     `(diary
+       ((,class
+         (:foreground ,yellow))))
 
 
      ;;; help
      `(help-argument-name
-       ((,class (:foreground ,cyan))))
+       ((,class
+         (:foreground ,cyan))))
 
      ;;; webmod
      `(web-mode-html-tag-face
-       ((,class (:foreground ,yellow :weight bold :underline t))))
+       ((,class
+         (:foreground ,yellow :weight bold :underline t))))
 
 
      ;; fontlock
      `(font-lock-builtin-face
-       ((,class (:foreground ,orange :weight bold))))
+       ((,class
+         (:foreground ,orange :weight bold))))
      `(font-lock-comment-delimiter-face
-       ((,class (:foreground ,zk-comments))))
+       ((,class
+         (:foreground ,zk-comments))))
 
      `(font-lock-comment-face
-       ((,class (:foreground ,zk-comments))))
+       ((,class
+         (:foreground ,zk-comments))))
 
      `(font-lock-constant-face
-       ((,class (:foreground ,magenta))))
+       ((,class
+         (:foreground ,magenta))))
 
      `(font-lock-string-face
-       ((,class (:foreground ,magenta :style :italic))))
+       ((,class
+         (:foreground ,magenta :style :italic))))
 
      `(font-lock-keyword-face
-       ((,class (:foreground ,blue
-                             :weight bold))))
+       ((,class
+         (:foreground ,blue
+                      :weight bold))))
 
      `(font-lock-function-name-face
-       ((,class (:foreground ,cyan
-                 :weight bold))))
+       ((,class
+         (:foreground ,cyan
+                      :weight bold))))
 
      `(font-lock-type-face
-       ((,class (:foreground ,cyan :underline t))))
+       ((,class
+         (:foreground ,cyan :underline t))))
 
      `(font-lock-variable-name-face
-       ((,class (:foreground ,green))))
+       ((,class
+         (:foreground ,green))))
 
      `(font-lock-doc-face
-       ((,class (:foreground ,magenta))))
+       ((,class
+         (:foreground ,magenta))))
      `(font-lock-warning-face
-       ((,class (:foreground ,yellow
-                 :background ,zk-bg
-                 :underline  t
-                 :weight bold))))
+       ((,class
+         (:foreground ,yellow
+                      :background ,zk-bg
+                      :underline  t
+                      :weight bold))))
 
      ;; misc faces
      `(mode-line
-       ((,class (:inverse-video unspecified
-                 :underline unspecified
-                 :background ,(color-darken-name zk-bg 10)
-                 :foreground ,zk-fg
-                 :weight bold
-                 :box (:line-width 1 :color ,(color-darken-name cyan 10) :style unspecified)))))
+       ((,class
+         (:inverse-video unspecified
+                         :underline unspecified
+                         :background ,(color-darken-name zk-bg 10)
+                         :foreground ,zk-fg
+                         :weight bold
+                         :box (:line-width 1 :color ,(color-darken-name cyan 10) :style unspecified)))))
      `(mode-line-buffer-id
-       ((,class (:foreground ,zk-fg :weight bold))))
+       ((,class
+         (:foreground ,zk-fg :weight bold))))
 
      `(mode-line-inactive
-       ((,class (:inverse-video unspecified
-                 :underline unspecified
-                 :foreground ,zk-fg
-                 :weight bold
-                 :background ,blue
-                 :box (:line-width 1 :color ,zk-bg :style unspecified)))))
+       ((,class
+         (:inverse-video unspecified
+                         :underline unspecified
+                         :foreground ,zk-fg
+                         :weight bold
+                         :background ,blue
+                         :box (:line-width 1 :color ,zk-bg :style unspecified)))))
 
+     `(secondary-selection
+       ((,class
+         (:foreground ,red))))
 
      ;;; Enh-ruby
      `(enh-ruby-string-delimiter-face
-       ((,class (:foreground ,orange
-                 :weight bold))))
+       ((,class
+         (:foreground ,orange
+                      :weight bold))))
      `(enh-ruby-op-face
-       ((,class (:foreground ,yellow
-                             :weight bold))))
+       ((,class
+         (:foreground ,yellow
+                      :weight bold))))
 
+     ;; whitespace line
+     `(whitespace-line
+       ((,class
+         (:foreground ,red
+                      :background ,orange))))
 
 
      ;; Rainbow delimiters
      `(rainbow-delimiters-depth-1-face
-       ((,class (:foreground ,rb-1))))
+       ((,class
+         (:foreground ,rb-1))))
 
      `(rainbow-delimiters-depth-2-face
-       ((,class (:foreground ,rb-2))))
+       ((,class
+         (:foreground ,rb-2))))
 
      `(rainbow-delimiters-depth-3-face
-       ((,class (:foreground ,rb-3))))
+       ((,class
+         (:foreground ,rb-3))))
 
      `(rainbow-delimiters-depth-4-face
-       ((,class (:foreground ,rb-4))))
+       ((,class
+         (:foreground ,rb-4))))
 
      `(rainbow-delimiters-depth-5-face
-       ((,class (:foreground ,rb-5))))
+       ((,class
+         (:foreground ,rb-5))))
 
      `(rainbow-delimiters-depth-6-face
-       ((,class (:foreground ,rb-1))))
+       ((,class
+         (:foreground ,rb-1))))
 
      `(rainbow-delimiters-depth-7-face
-       ((,class (:foreground ,rb-2))))
+       ((,class
+         (:foreground ,rb-2))))
 
      `(rainbow-delimiters-depth-8-face
-       ((,class (:foreground ,rb-3))))
+       ((,class
+         (:foreground ,rb-3))))
 
      `(rainbow-delimiters-depth-9-face
-       ((,class (:foreground ,rb-4))))
+       ((,class
+         (:foreground ,rb-4))))
 
      `(rainbow-delimiters-depth-10-face
-       ((,class (:foreground ,rb-5))))
+       ((,class
+         (:foreground ,rb-5))))
 
      `(rainbow-delimiters-depth-11-face
-       ((,class (:foreground ,rb-1))))
+       ((,class
+         (:foreground ,rb-1))))
 
      `(rainbow-delimiters-depth-12-face
-       ((,class (:foreground ,rb-2))))
+       ((,class
+         (:foreground ,rb-2))))
 
      `(rainbow-delimiters-unmatched-face
-       ((,class (:foreground ,zk-fg
-                 :background ,zk-bg
-                 :inverse-video t))))
-
+       ((,class
+         (:foreground ,zk-fg
+                      :background ,zk-bg
+                      :inverse-video t))))
 
 
      `(column-enforce-face
-       ((,class (:foreground ,blue))))
+       ((,class
+         (:foreground ,blue))))
 
 
      ;;; git gutter +
      `(git-gutter+-modified
-       ((,class (:foreground ,magenta
-                 :background ,zk-bg))))
+       ((,class
+         (:foreground ,magenta
+                      :background ,zk-bg))))
      `(git-gutter+-added
-       ((,class (:foreground ,green
-                 :background ,zk-bg))))
+       ((,class
+         (:foreground ,green
+                      :background ,zk-bg))))
      `(git-gutter+-deleted
-       ((,class (:foreground ,red
-                 :background ,zk-bg))))
+       ((,class
+         (:foreground ,red
+                      :background ,zk-bg))))
 
      ;; isearch
      `(isearch
-       ((,class (:foreground ,zk-bg
-                 :background ,green
-                 :weight bold))))
+       ((,class
+         (:foreground ,zk-bg
+                      :background ,green
+                      :weight bold))))
      `(isearch-fail
-       ((,class (:foreground ,zk-bg
-                 :background ,red
-                 :weight bold))))
+       ((,class
+         (:foreground ,zk-bg
+                      :background ,red
+                      :weight bold))))
 
 
 
      ;; external
      ;; ace-jump-mode
      `(ace-jump-face-background
-       ((,class (:foreground ,dark-gray :background ,zk-bg
-                 :inverse-video nil
-                 :weight bold))))
+       ((,class
+         (:foreground ,dark-gray :background ,zk-bg
+                      :inverse-video nil
+                      :weight bold))))
      `(ace-jump-face-foreground
-       ((,class (:foreground ,red :background ,zk-bg :inverse-video nil :weight bold))))
+       ((,class
+         (:foreground ,red :background ,zk-bg :inverse-video nil :weight bold))))
 
 
      ;; dired
      `(dired-directory
-       ((,class (:foreground ,cyan :weight normal))))
+       ((,class
+         (:foreground ,cyan :weight normal))))
      `(dired-flagged
-       ((,class (:foreground ,red))))
+       ((,class
+         (:foreground ,red))))
      `(dired-header
-       ((,class (:foreground ,magenta :background ,zk-bg))))
+       ((,class
+         (:foreground ,magenta :background ,zk-bg))))
      `(dired-ignored
-       ((,class (:inherit shadow))))
+       ((,class
+         (:inherit shadow))))
 
 
 
      ;;; magit
      ;; commit
      `(git-commit-summary-face
-       ((,class (:foreground ,magenta))))
+       ((,class
+         (:foreground ,magenta))))
      `(git-commit-branch-face
-       ((,class (:foreground ,cyan))))
+       ((,class
+         (:foreground ,cyan))))
      `(git-commit-comment-file-face
-       ((,class (:foreground ,green))))
+       ((,class
+         (:foreground ,green))))
      `(git-commit-comment-heading-face
-       ((,class (:foreground ,orange))))
+       ((,class
+         (:foreground ,orange))))
      ;; log
      `(magit-section-title
-       ((,class (:foreground ,green :background ,zk-bg :weight bold))))
+       ((,class
+         (:foreground ,green :background ,zk-bg :weight bold))))
      `(magit-log-sha1
-       ((,class (:foreground ,cyan))))
+       ((,class
+         (:foreground ,cyan))))
      `(magit-branch
-       ((,class (:foreground ,magenta :background ,zk-bg))))
+       ((,class
+         (:foreground ,magenta :background ,zk-bg))))
 
      `(magit-key-mode-header-face
-       ((,class (:foreground ,green))))
+       ((,class
+         (:foreground ,green))))
      `(magit-key-mode-button-face
-       ((,class (:foreground ,yellow))))
+       ((,class
+         (:foreground ,yellow))))
 
      ;; rhtml-mode
      `(erb-out-delim-face
-       ((,class (:foreground ,orange :background ,dark-gray))))
+       ((,class
+         (:foreground ,orange :background ,dark-gray))))
      `(erb-out-face
-       ((,class (:background ,dark-gray :foreground ,yellow))))
+       ((,class
+         (:background ,dark-gray :foreground ,yellow))))
 
      `(js2-function-call
-       ((,class (:foreground ,green))))
+       ((,class
+         (:foreground ,cyan))))
 
      ;; sp pair overlay face
      `(sp-pair-overlay-face
-       ((,class (:background ,zk-bg))))
-    )))
+       ((,class
+         (:background ,zk-bg))))
+     )))
 
 ;;;###autoload
 (when (and (boundp 'custom-theme-load-path) load-file-name)
