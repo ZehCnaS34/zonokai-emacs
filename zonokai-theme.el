@@ -424,6 +424,27 @@ Takes an optional `FRAME' as reference."
      `(sp-pair-overlay-face
        ((,class
          (:background ,zk-bg))))
+
+
+     ;; Compnay
+     `(company-tooltip
+       ((t (:foreground ,zk-fg :background ,(color-darken-name zk-bg 10)))))
+     `(company-tooltip-selection
+       ((t (:foreground ,dark-gray :background ,cyan))))
+     `(company-tooltip-mouse
+       ((t (:background ,(color-darken-name red 30)))))
+     `(company-tooltip-common
+       ((t (:foreground ,green ))))
+     `(company-tooltip-common-selection
+       ((t (:background ,(color-darken-name blue 10)))))
+     `(company-scrollbar-fg
+       ((t (:background ,(color-darken-name cyan 20)))))
+     `(company-scrollbar-bg
+       ((t (:background ,(color-darken-name cyan 40)))))
+     `(company-preview
+       ((t (:background ,red))))
+     `(company-preview-common
+       ((t (:background ,zk-bg))))
      )))
 
 ;;;###autoload
