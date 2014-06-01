@@ -181,7 +181,7 @@ Takes an optional `FRAME' as reference."
 
      `(font-lock-constant-face
        ((,class
-         (:foreground ,magenta))))
+         (:foreground ,yellow))))
 
      `(font-lock-string-face
        ((,class
@@ -199,7 +199,7 @@ Takes an optional `FRAME' as reference."
 
      `(font-lock-type-face
        ((,class
-         (:foreground ,cyan :underline t))))
+         (:foreground ,cyan))))
 
      `(font-lock-variable-name-face
        ((,class
@@ -220,13 +220,14 @@ Takes an optional `FRAME' as reference."
        ((,class
          (:inverse-video unspecified
                          :underline unspecified
-                         :background ,(color-darken-name zk-bg 10)
+                         :background ,(color-darken-name zk-bg 7)
                          :foreground ,zk-fg
                          :weight bold
                          :box (:line-width 1 :color ,(color-darken-name cyan 10) :style unspecified)))))
      `(mode-line-buffer-id
        ((,class
-         (:foreground ,zk-fg :weight bold))))
+         (:foreground ,green :weight bold))))
+
 
      `(mode-line-inactive
        ((,class
@@ -234,8 +235,8 @@ Takes an optional `FRAME' as reference."
                          :underline unspecified
                          :foreground ,zk-fg
                          :weight bold
-                         :background ,blue
-                         :box (:line-width 1 :color ,zk-bg :style unspecified)))))
+                         :background ,(color-darken-name zk-bg 30)
+                        ))))
 
      `(secondary-selection
        ((,class
@@ -255,7 +256,7 @@ Takes an optional `FRAME' as reference."
      `(whitespace-line
        ((,class
          (:foreground ,red
-                      :background ,orange))))
+                      :background "transparent"))))
 
 
      ;; Rainbow delimiters
