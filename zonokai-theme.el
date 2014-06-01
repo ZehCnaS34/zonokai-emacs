@@ -129,7 +129,7 @@ Takes an optional `FRAME' as reference."
          (:foreground ,zk-fg :background ,zk-bg))))
      `(region
        ((,class
-         (:background ,zk-region :foreground transparent :weight bold))))
+         (:background ,zk-region :foreground "transparent" :weight bold))))
      `(idle-highlight
        ((,class
          (:foreground ,cyan
