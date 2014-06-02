@@ -3,6 +3,8 @@
 ;; eval: (when (fboundp 'rainbow-mode) (rainbow-mode 1))
 ;; End:
 
+
+
 ;;; zonokai-theme.el ends here
 ;;; zonokai-theme.el --- blue based theme for emacs
 
@@ -98,10 +100,10 @@ Takes an optional `FRAME' as reference."
 
      ;; basic coloring
      `(highlight
-       ((,class
+       ((t
          (:background ,(color-darken-name zk-bg 5)))))
      `(default
-        ((,class
+        ((t
           (:foreground ,zk-fg :background ,zk-bg))))
      `(fringe
        ((,class
@@ -255,7 +257,7 @@ Takes an optional `FRAME' as reference."
      ;; whitespace line
      `(whitespace-line
        ((,class
-         (:foreground ,red
+         (:foreground ,(color-darken-name red 10)
                       :background "transparent"))))
 
 
@@ -333,6 +335,24 @@ Takes an optional `FRAME' as reference."
        ((,class
          (:foreground ,red
                       :background ,zk-bg))))
+
+     ;;; git gutter
+     `(git-gutter:modified
+       ((,class
+         (:foreground ,magenta
+                      :background ,zk-bg))))
+     `(git-gutteradded
+       ((,class
+         (:foreground ,green
+                      :background ,zk-bg))))
+     `(git-gutter:deleted
+       ((,class
+         (:foreground ,red
+                      :background ,zk-bg))))
+
+   `(git-gutter-fr:added ((t (:foreground ,green  :weight bold))))
+   `(git-gutter-fr:deleted ((t (:foreground ,red :weight bold))))
+   `(git-gutter-fr:modified ((t (:foreground ,magenta :weight bold))))
 
      ;; isearch
      `(isearch
@@ -445,6 +465,19 @@ Takes an optional `FRAME' as reference."
        ((t (:background ,red))))
      `(company-preview-common
        ((t (:background ,zk-bg))))
+
+      ;; eshell
+     `(eshell-prompt ((t (:foreground ,yellow :weight bold))))
+     `(eshell-ls-archive ((t (:foreground ,red :weight bold))))
+     `(eshell-ls-backup ((t (:inherit font-lock-comment-face))))
+     `(eshell-ls-clutter ((t (:inherit font-lock-comment-face))))
+     `(eshell-ls-directory ((t (:foreground ,blue :weight bold))))
+     `(eshell-ls-executable ((t (:foreground ,red :weight bold))))
+     `(eshell-ls-unreadable ((t (:foreground ,zk-fg))))
+     `(eshell-ls-missing ((t (:inherit font-lock-warning-face))))
+     `(eshell-ls-product ((t (:inherit font-lock-doc-face))))
+     `(eshell-ls-special ((t (:foreground ,yellow :weight bold))))
+     `(eshell-ls-symlink ((t (:foreground ,cyan :weight bold))))
      )))
 
 ;;;###autoload
