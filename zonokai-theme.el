@@ -260,12 +260,6 @@ Takes an optional `FRAME' as reference."
          (:foreground ,yellow
                       :weight bold))))
 
-     ;; whitespace line
-     `(whitespace-line
-       ((,class
-         (:foreground ,(color-darken-name red 10)
-                      :background "transparent"))))
-
 
 
      ;; Rainbow delimiters
