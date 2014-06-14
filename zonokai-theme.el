@@ -60,7 +60,6 @@ The theme will have to be reloded after changing options."
   (let ((valmax (float (car (color-values "#fff")))))
     (mapcar (lambda (x) (/ x valmax)) (color-values color frame))))
 
-(color-values "white")
 
 (defun create-zonokai-theme ()
   "Create the zonokai theme.
@@ -78,12 +77,19 @@ Takes an optional `FRAME' as reference."
 
          ;; Accented colors
          (brown      "#B26800")
+         (brown+1    (color-lighten-name brown 10))
+         (brown-1    (color-darken-name brown 10))
+         (red        "#CC1514")
+         (red+1      (color-lighten-name red 10))
+         (red-1      (color-darken-name red 10))
          (red        "#CC1514")
          (magenta    "#E518FF")
          (orange     "#FF5C40")
          (yellow     "#E2D511")
          (green      "#A6E22E")
          (cyan       "#00FFDA")
+         (cyan+1     (color-lighten-name cyan 30))
+         (cyan-1     (color-darken-name cyan 30))
          (blue       "#3D7599")
          (dark-gray  "#444444")
          (lite-gray  "#eeeeee")
@@ -187,7 +193,7 @@ Takes an optional `FRAME' as reference."
 
      `(font-lock-string-face
        ((,class
-         (:foreground ,magenta :style :italic))))
+         (:foreground ,magenta  :style :italic))))
 
      `(font-lock-keyword-face
        ((,class
@@ -197,6 +203,7 @@ Takes an optional `FRAME' as reference."
      `(font-lock-function-name-face
        ((,class
          (:foreground ,cyan
+                      :background ,cyan-1
                       :weight bold))))
 
      `(font-lock-type-face
@@ -259,6 +266,14 @@ Takes an optional `FRAME' as reference."
        ((,class
          (:foreground ,(color-darken-name red 10)
                       :background "transparent"))))
+
+     `(whitespace-empty
+       ((,class
+         (:background ,(color-darken-name zk-bg 2)))))
+
+     `(whitespace-trailing
+       ((,class
+         (:background ,(color-darken-name zk-bg 2)))))
 
 
      ;; Rainbow delimiters
@@ -478,6 +493,32 @@ Takes an optional `FRAME' as reference."
      `(eshell-ls-product ((t (:inherit font-lock-doc-face))))
      `(eshell-ls-special ((t (:foreground ,yellow :weight bold))))
      `(eshell-ls-symlink ((t (:foreground ,cyan :weight bold))))
+
+
+;;;;; smartparens
+     `(sp-show-pair-mismatch-face ((t (:foreground ,red :background ,zk-bg :weight bold))))
+     `(sp-show-pair-match-face ((t (:background ,zk-bg :weight bold))))
+
+
+;;;;; undo-tree
+     `(undo-tree-visualizer-active-branch-face ((t (:foreground ,zk-fg :weight bold))))
+     `(undo-tree-visualizer-current-face ((t (:foreground ,red :weight bold))))
+     `(undo-tree-visualizer-default-face ((t (:foreground ,zk-fg))))
+     `(undo-tree-visualizer-register-face ((t (:foreground ,yellow))))
+     `(undo-tree-visualizer-unmodified-face ((t (:foreground ,cyan))))
+
+
+;;;;; whitespace-mode
+   `(whitespace-space ((t (:background ,zk-bg :foreground ,zk-bg))))
+   `(whitespace-hspace ((t (:background ,zk-bg :foreground ,zk-bg))))
+   `(whitespace-tab ((t (:background ,red))))
+   `(whitespace-newline ((t (:foreground ,zk-bg))))
+   `(whitespace-trailing ((t (:background ,red))))
+   `(whitespace-line ((t (:background ,zk-bg :foreground ,magenta))))
+   `(whitespace-space-before-tab ((t (:background ,orange :foreground ,orange))))
+   `(whitespace-indentation ((t (:background ,yellow :foreground ,red))))
+   `(whitespace-empty ((t (:background ,yellow))))
+   `(whitespace-space-after-tab ((t (:background ,yellow :foreground ,red))))
      )))
 
 ;;;###autoload
