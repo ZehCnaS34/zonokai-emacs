@@ -203,7 +203,6 @@ Takes an optional `FRAME' as reference."
      `(font-lock-function-name-face
        ((,class
          (:foreground ,cyan
-                      :background ,cyan-1
                       :weight bold))))
 
      `(font-lock-type-face
@@ -267,13 +266,6 @@ Takes an optional `FRAME' as reference."
          (:foreground ,(color-darken-name red 10)
                       :background "transparent"))))
 
-     `(whitespace-empty
-       ((,class
-         (:background ,(color-darken-name zk-bg 2)))))
-
-     `(whitespace-trailing
-       ((,class
-         (:background ,(color-darken-name zk-bg 2)))))
 
 
      ;; Rainbow delimiters
@@ -511,9 +503,9 @@ Takes an optional `FRAME' as reference."
 ;;;;; whitespace-mode
    `(whitespace-space ((t (:background ,zk-bg :foreground ,zk-bg))))
    `(whitespace-hspace ((t (:background ,zk-bg :foreground ,zk-bg))))
-   `(whitespace-tab ((t (:background ,red))))
+   `(whitespace-tab ((t (:background ,(color-lighten-name zk-bg 2)))))
    `(whitespace-newline ((t (:foreground ,zk-bg))))
-   `(whitespace-trailing ((t (:background ,red))))
+   `(whitespace-trailing ((t (:background ,(color-darken-name magenta 20)))))
    `(whitespace-line ((t (:background ,zk-bg :foreground ,magenta))))
    `(whitespace-space-before-tab ((t (:background ,orange :foreground ,orange))))
    `(whitespace-indentation ((t (:background ,yellow :foreground ,red))))
