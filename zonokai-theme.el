@@ -137,7 +137,7 @@ Takes an optional `FRAME' as reference."
          (:foreground ,zk-fg :background ,zk-bg))))
      `(region
        ((,class
-         (:background ,zk-region  :weight bold))))
+         (:background ,zk-region))))
      `(idle-highlight
        ((,class
          (:foreground ,cyan
