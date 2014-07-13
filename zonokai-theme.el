@@ -382,6 +382,9 @@ Takes an optional `FRAME' as reference."
 
 
      ;; dired
+     `(dired-ignored
+       ((,class
+         (:foreground ,(color-darken-name zk-fg 60) :background "transparent"))))
      `(dired-directory
        ((,class
          (:foreground ,cyan :weight normal))))
@@ -391,9 +394,6 @@ Takes an optional `FRAME' as reference."
      `(dired-header
        ((,class
          (:foreground ,magenta :background ,zk-bg))))
-     `(dired-ignored
-       ((,class
-         (:inherit shadow))))
 
 
 
