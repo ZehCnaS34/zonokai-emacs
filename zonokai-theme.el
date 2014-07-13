@@ -411,6 +411,7 @@ Takes an optional `FRAME' as reference."
      `(git-commit-comment-heading-face
        ((,class
          (:foreground ,orange))))
+ 
      ;; log
      `(magit-section-title
        ((,class
@@ -428,6 +429,11 @@ Takes an optional `FRAME' as reference."
      `(magit-key-mode-button-face
        ((,class
          (:foreground ,yellow))))
+
+     `(magit-item-highlight
+       ((,class
+         (:background ,(color-darken-name zk-bg 20)
+          :foreground ,yellow))))
 
      ;; rhtml-mode
      `(erb-out-delim-face
