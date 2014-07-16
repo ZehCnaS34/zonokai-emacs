@@ -64,7 +64,7 @@ The theme will have to be reloded after changing options."
 (defun create-zonokai-theme ()
   "Create the zonokai theme.
 Takes an optional `FRAME' as reference."
-  (let* ((class '((class color) (min-colors 89)))
+  (let* ((class '((class color) (min-colors 256)))
          ;; BG color
          (zk-hl "#096BAA")
          (zk-fg "#eee")
@@ -261,6 +261,55 @@ Takes an optional `FRAME' as reference."
                       :weight bold))))
 
 
+     ;;; rainbow blocks
+     `(rainbow-blocks-depth-1-face
+       ((,class
+         (:foreground ,rb-1))))
+
+     `(rainbow-blocks-depth-2-face
+       ((,class
+         (:foreground ,rb-2))))
+
+     `(rainbow-blocks-depth-3-face
+       ((,class
+         (:foreground ,rb-3))))
+
+     `(rainbow-blocks-depth-4-face
+       ((,class
+         (:foreground ,rb-4))))
+
+     `(rainbow-blocks-depth-5-face
+       ((,class
+         (:foreground ,rb-5))))
+
+     `(rainbow-blocks-depth-6-face
+       ((,class
+         (:foreground ,rb-1))))
+
+     `(rainbow-blocks-depth-7-face
+       ((,class
+         (:foreground ,rb-2))))
+
+     `(rainbow-blocks-depth-8-face
+       ((,class
+         (:foreground ,rb-3))))
+
+     `(rainbow-blocks-depth-9-face
+       ((,class
+         (:foreground ,rb-4))))
+
+     `(rainbow-blocks-depth-10-face
+       ((,class
+         (:foreground ,rb-5))))
+
+     `(rainbow-blocks-depth-11-face
+       ((,class
+         (:foreground ,rb-1))))
+
+     `(rainbow-blocks-depth-12-face
+       ((,class
+         (:foreground ,rb-2))))
+
 
      ;; Rainbow delimiters
      `(rainbow-delimiters-depth-1-face
@@ -412,7 +461,16 @@ Takes an optional `FRAME' as reference."
        ((,class
          (:foreground ,orange))))
  
-     ;; log
+
+     `(magit-diff-none
+       ((,class
+         (:foreground ,(color-lighten-name zk-bg 25)))))
+     `(magit-diff-del
+       ((,class
+         (:foreground ,(color-lighten-name red 25) :background ,(color-darken-name red 25)))))
+     `(magit-diff-add
+       ((,class
+         (:foreground ,(color-lighten-name green 25) :background ,(color-darken-name green 25)))))
      `(magit-section-title
        ((,class
          (:foreground ,green :background ,zk-bg :weight bold))))
@@ -432,8 +490,8 @@ Takes an optional `FRAME' as reference."
 
      `(magit-item-highlight
        ((,class
-         (:background ,(color-darken-name zk-bg 20)
-          :foreground ,yellow))))
+         (:background ,(color-darken-name zk-bg 2)
+          :foreground ,cyan))))
 
      ;; rhtml-mode
      `(erb-out-delim-face
