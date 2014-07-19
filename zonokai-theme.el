@@ -496,10 +496,10 @@ Takes an optional `FRAME' as reference."
      ;; rhtml-mode
      `(erb-out-delim-face
        ((,class
-         (:foreground ,orange :background ,dark-gray))))
+         (:foreground ,orange :background ,(color-darken-name zk-bg 5)))))
      `(erb-out-face
        ((,class
-         (:background ,dark-gray :foreground ,yellow))))
+         (:background ,(color-darken-name zk-bg 5) :foreground ,yellow))))
 
      `(js2-function-call
        ((,class
