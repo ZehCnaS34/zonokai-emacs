@@ -493,6 +493,15 @@ Takes an optional `FRAME' as reference."
          (:background ,(color-darken-name zk-bg 2)
           :foreground ,cyan))))
 
+
+
+     ;; testing erm
+     ;; erm
+     `(erm-sym-errline
+       ((,class
+         (:foreground ,cyan :background ,orange))))
+
+
      ;; rhtml-mode
      `(erb-out-delim-face
        ((,class
