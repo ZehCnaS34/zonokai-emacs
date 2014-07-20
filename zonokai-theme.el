@@ -567,6 +567,12 @@ Takes an optional `FRAME' as reference."
      `(undo-tree-visualizer-unmodified-face ((t (:foreground ,cyan))))
 
 
+
+;;;;; emmet mode
+     `(emmet-preview-input
+       ((,class
+         (:foreground ,cyan :background ,(color-darken-name zk-bg 10)))))
+
 ;;;;; whitespace-mode
    `(whitespace-space ((t (:background ,zk-bg :foreground ,zk-bg))))
    `(whitespace-hspace ((t (:background ,zk-bg :foreground ,zk-bg))))
