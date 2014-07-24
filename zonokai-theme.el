@@ -156,7 +156,7 @@ Takes an optional `FRAME' as reference."
      `(custom-button
        ((,class
          (:background ,(color-darken-name zk-bg 40)
-          :foreground ,(color-lighten-name magenta 10)))))
+          :foreground ,(color-lighten-name green 10)))))
 
      `(custom-button-mouse
        ((,class
@@ -168,8 +168,8 @@ Takes an optional `FRAME' as reference."
          (:background ,(color-darken-name cyan 10)
           :foreground ,(color-lighten-name cyan 60)))))
 
-     `(custom-link
-       ((,classo)))
+     ;; `(custom-link
+     ;;   ((,class)))
 
      `(custom-variable-tag
        ((,class
