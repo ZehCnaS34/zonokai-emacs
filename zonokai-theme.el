@@ -147,6 +147,33 @@ Takes an optional `FRAME' as reference."
          (:background ,zk-hl-line
                       :foreground nil))))
 
+     `(widget-field
+       ((,class
+         (:background ,(color-darken-name zk-bg 30)
+          :foreground ,(color-lighten-name magenta 10))
+         )))
+
+     `(custom-button
+       ((,class
+         (:background ,(color-darken-name zk-bg 40)
+          :foreground ,(color-lighten-name magenta 10)))))
+
+     `(custom-button-mouse
+       ((,class
+         (:background ,(color-darken-name zk-fg 60)
+          :foreground ,(color-lighten-name cyan 60)))))
+
+     `(custom-button-pressed
+       ((,class
+         (:background ,(color-darken-name cyan 10)
+          :foreground ,(color-lighten-name cyan 60)))))
+
+     `(custom-link
+       ((,classo)))
+
+     `(custom-variable-tag
+       ((,class
+         (:foreground ,cyan))))
 
      ;; compilation
      `(compilation-column-face
@@ -445,6 +472,8 @@ Takes an optional `FRAME' as reference."
          (:foreground ,magenta :background ,zk-bg))))
 
 
+     
+     
 
      ;;; magit
      ;; commit
@@ -464,7 +493,7 @@ Takes an optional `FRAME' as reference."
 
      `(magit-diff-none
        ((,class
-         (:foreground ,(color-lighten-name zk-bg 25)))))
+         (:foreground ,(color-lighten-name zk-bg 25) :background ,(color-darken-name zk-bg 5)))))
      `(magit-diff-del
        ((,class
          (:foreground ,(color-lighten-name red 25) :background ,(color-darken-name red 25)))))
