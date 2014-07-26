@@ -106,10 +106,10 @@ Takes an optional `FRAME' as reference."
 
      ;; basic coloring
      `(highlight
-       ((t
+       ((,class 
          (:background ,(color-darken-name zk-bg 5)))))
      `(default
-        ((t
+        ((,class
           (:foreground ,zk-fg :background ,zk-bg))))
      `(fringe
        ((,class
@@ -427,9 +427,9 @@ Takes an optional `FRAME' as reference."
          (:foreground ,red
                       :background ,zk-bg))))
 
-   `(git-gutter-fr:added ((t (:foreground ,green  :weight bold))))
-   `(git-gutter-fr:deleted ((t (:foreground ,red :weight bold))))
-   `(git-gutter-fr:modified ((t (:foreground ,magenta :weight bold))))
+   `(git-gutter-fr:added ((,class (:foreground ,green  :weight bold))))
+   `(git-gutter-fr:deleted ((,class (:foreground ,red :weight bold))))
+   `(git-gutter-fr:modified ((,class (:foreground ,magenta :weight bold))))
 
      ;; isearch
      `(isearch
@@ -551,49 +551,49 @@ Takes an optional `FRAME' as reference."
 
      ;; Compnay
      `(company-tooltip
-       ((t (:foreground ,zk-fg :background ,(color-darken-name zk-bg 10)))))
+       ((,class (:foreground ,zk-fg :background ,(color-darken-name zk-bg 10)))))
      `(company-tooltip-selection
-       ((t (:foreground ,dark-gray :background ,cyan))))
+       ((,class (:foreground ,dark-gray :background ,cyan))))
      `(company-tooltip-mouse
-       ((t (:background ,(color-darken-name red 30)))))
+       ((,class (:background ,(color-darken-name red 30)))))
      `(company-tooltip-common
-       ((t (:foreground ,green ))))
+       ((,class (:foreground ,green ))))
      `(company-tooltip-common-selection
-       ((t (:background ,(color-darken-name blue 10)))))
+       ((,class (:background ,(color-darken-name blue 10)))))
      `(company-scrollbar-fg
-       ((t (:background ,(color-darken-name cyan 20)))))
+       ((,class (:background ,(color-darken-name cyan 20)))))
      `(company-scrollbar-bg
-       ((t (:background ,(color-darken-name cyan 40)))))
+       ((,class (:background ,(color-darken-name cyan 40)))))
      `(company-preview
-       ((t (:background ,red))))
+       ((,class (:background ,red))))
      `(company-preview-common
-       ((t (:background ,zk-bg))))
+       ((,class (:background ,zk-bg))))
 
       ;; eshell
-     `(eshell-prompt ((t (:foreground ,yellow :weight bold))))
-     `(eshell-ls-archive ((t (:foreground ,red :weight bold))))
-     `(eshell-ls-backup ((t (:inherit font-lock-comment-face))))
-     `(eshell-ls-clutter ((t (:inherit font-lock-comment-face))))
-     `(eshell-ls-directory ((t (:foreground ,blue :weight bold))))
-     `(eshell-ls-executable ((t (:foreground ,red :weight bold))))
-     `(eshell-ls-unreadable ((t (:foreground ,zk-fg))))
-     `(eshell-ls-missing ((t (:inherit font-lock-warning-face))))
-     `(eshell-ls-product ((t (:inherit font-lock-doc-face))))
-     `(eshell-ls-special ((t (:foreground ,yellow :weight bold))))
-     `(eshell-ls-symlink ((t (:foreground ,cyan :weight bold))))
+     `(eshell-prompt ((,class (:foreground ,yellow :weight bold))))
+     `(eshell-ls-archive ((,class (:foreground ,red :weight bold))))
+     `(eshell-ls-backup ((,class (:inherit font-lock-comment-face))))
+     `(eshell-ls-clutter ((,class (:inherit font-lock-comment-face))))
+     `(eshell-ls-directory ((,class (:foreground ,blue :weight bold))))
+     `(eshell-ls-executable ((,class (:foreground ,red :weight bold))))
+     `(eshell-ls-unreadable ((,class (:foreground ,zk-fg))))
+     `(eshell-ls-missing ((,class (:inherit font-lock-warning-face))))
+     `(eshell-ls-product ((,class (:inherit font-lock-doc-face))))
+     `(eshell-ls-special ((,class (:foreground ,yellow :weight bold))))
+     `(eshell-ls-symlink ((,class (:foreground ,cyan :weight bold))))
 
 
 ;;;;; smartparens
-     `(sp-show-pair-mismatch-face ((t (:foreground ,red :background ,zk-bg :weight bold))))
-     `(sp-show-pair-match-face ((t (:background ,zk-bg :weight bold))))
+     `(sp-show-pair-mismatch-face ((,class (:foreground ,red :background ,zk-bg :weight bold))))
+     `(sp-show-pair-match-face ((,class (:background ,zk-bg :weight bold))))
 
 
 ;;;;; undo-tree
-     `(undo-tree-visualizer-active-branch-face ((t (:foreground ,zk-fg :weight bold))))
-     `(undo-tree-visualizer-current-face ((t (:foreground ,red :weight bold))))
-     `(undo-tree-visualizer-default-face ((t (:foreground ,zk-fg))))
-     `(undo-tree-visualizer-register-face ((t (:foreground ,yellow))))
-     `(undo-tree-visualizer-unmodified-face ((t (:foreground ,cyan))))
+     `(undo-tree-visualizer-active-branch-face ((,class (:foreground ,zk-fg :weight bold))))
+     `(undo-tree-visualizer-current-face ((,class (:foreground ,red :weight bold))))
+     `(undo-tree-visualizer-default-face ((,class (:foreground ,zk-fg))))
+     `(undo-tree-visualizer-register-face ((,class (:foreground ,yellow))))
+     `(undo-tree-visualizer-unmodified-face ((,class (:foreground ,cyan))))
 
 
 
@@ -603,16 +603,16 @@ Takes an optional `FRAME' as reference."
          (:foreground ,cyan :background ,(color-darken-name zk-bg 10)))))
 
 ;;;;; whitespace-mode
-   `(whitespace-space ((t (:background ,zk-bg :foreground ,zk-bg))))
-   `(whitespace-hspace ((t (:background ,zk-bg :foreground ,zk-bg))))
-   `(whitespace-tab ((t (:background ,(color-lighten-name zk-bg 2)))))
-   `(whitespace-newline ((t (:foreground ,zk-bg))))
-   `(whitespace-trailing ((t (:background ,(color-darken-name magenta 20)))))
-   `(whitespace-line ((t (:background ,zk-bg :foreground ,magenta))))
-   `(whitespace-space-before-tab ((t (:background ,orange :foreground ,orange))))
-   `(whitespace-indentation ((t (:background ,yellow :foreground ,red))))
-   `(whitespace-empty ((t (:background ,yellow))))
-   `(whitespace-space-after-tab ((t (:background ,yellow :foreground ,red))))
+   `(whitespace-space ((,class (:background ,zk-bg :foreground ,zk-bg))))
+   `(whitespace-hspace ((,class (:background ,zk-bg :foreground ,zk-bg))))
+   `(whitespace-tab ((,class (:background ,(color-lighten-name zk-bg 2)))))
+   `(whitespace-newline ((,class (:foreground ,zk-bg))))
+   `(whitespace-trailing ((,class (:background ,(color-darken-name magenta 20)))))
+   `(whitespace-line ((,class (:background ,zk-bg :foreground ,magenta))))
+   `(whitespace-space-before-tab ((,class (:background ,orange :foreground ,orange))))
+   `(whitespace-indentation ((,class (:background ,yellow :foreground ,red))))
+   `(whitespace-empty ((,class (:background ,yellow))))
+   `(whitespace-space-after-tab ((,class (:background ,yellow :foreground ,red))))
      )))
 
 ;;;###autoload
