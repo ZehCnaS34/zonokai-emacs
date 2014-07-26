@@ -234,6 +234,11 @@ Takes an optional `FRAME' as reference."
      `(ace-jump-face-foreground                ((,class (:foreground ,red :background ,zk-bg :inverse-video nil :weight bold))))
 
 
+;;;;;; fly spell
+     `(flyspell-incorrect                      ((,class (:foreground ,red :weight bold :underline t))))
+
+
+
 ;;;;;; dired
      `(dired-ignored                           ((,class (:foreground ,(color-darken-name zk-fg 60) :background "transparent"))))
      `(dired-directory                         ((,class (:foreground ,cyan :weight normal))))
