@@ -65,11 +65,6 @@ The theme will have to be reloded after changing options."
       (color-complement-hex color)
     color))
 
-
-
-(setq zk-compliment t)
-
-
 (defun create-zonokai-theme ()
   "Create the zonokai theme.
 Takes an optional `FRAME' as reference."
