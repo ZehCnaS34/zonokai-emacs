@@ -21,7 +21,7 @@ hence the name....
 
 
 ### Taking a look at magit
-
+**Theme**: Zonokai, Zonokai-compliment
 ![zonokai image](https://github.com/ZehCnaS34/zonokai-emacs/raw/master/magit.png)
 
 
