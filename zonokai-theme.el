@@ -53,9 +53,11 @@ The theme will have to be reloded after changing options."
   "Converts all colors to their complimental colors"
   :group 'zonokai
   :options '(t nil)
-  :type 'bool)
+  :type 'boolean)
 
 (deftheme zonokai "The zonokai color theme")
+
+
 
 (defun in-terminal-p ()
   "Return true if in a terminal."
@@ -132,7 +134,14 @@ Takes an optional `FRAME' as reference."
      `(widget-field                            ((,class (:background ,(color-darken-name zk-bg 30) :foreground ,(color-lighten-name magenta 10)))))
 
 
+;;;;;; ido
+     `(ido-subdir                              ((,class (:foreground ,green))))
+     `(ido-first-match                         ((,class (:foreground ,yellow :weight bold))))
+     `(ido-incomplete-regexp                   ((,class (:foreground ,red :underline t :weight bold))))
+     `(ido-only-match                          ((,class (:foreground ,cyan :weight bold))))
 
+
+;;;;;; custom
      `(custom-button                           ((,class (:background ,(color-darken-name zk-bg 40) :foreground ,(color-lighten-name green 10)))))
      `(custom-button-mouse                     ((,class (:background ,(color-darken-name zk-fg 60) :foreground ,(color-lighten-name cyan 60)))))
      `(custom-button-pressed                   ((,class (:background ,(color-darken-name cyan 10) :foreground ,(color-lighten-name cyan 60)))))
