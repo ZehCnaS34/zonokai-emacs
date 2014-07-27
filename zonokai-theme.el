@@ -57,7 +57,7 @@ The theme will have to be reloded after changing options."
 
 (deftheme zonokai "The zonokai color theme")
 
-(setq zk-complement t)
+(setq zk-complement nil)
 
 (defun in-terminal-p ()
   "Return true if in a terminal."
@@ -94,11 +94,12 @@ Takes an optional `FRAME' as reference."
          (brown     (if-complement "#B26800"))
          (brown+10  (color-lighten-name brown 10))
          (brown-10  (color-darken-name brown 10))
-         (red       (if-complement "#CC1514" (lambda (c) (color-darken-name c 30))))
-         (red+10  (color-lighten-name red 10))
-         (red-10  (color-darken-name red 10))
+         (red       (if-complement "#CC1514" 
+                                   (lambda (c) (color-darken-name c 30))))
+         (red+10    (color-lighten-name red 10))
+         (red-10    (color-darken-name red 10))
          (magenta   (if-complement "#E318FF"))
-         (magenta+10  (color-lighten-name magenta 10))
+         (magenta+10 (color-lighten-name magenta 10))
          (magenta-10  (color-darken-name magenta 10))
          (violet    (if-complement "#6C71C4"))
          (violet+10  (color-lighten-name violet 10))
@@ -117,10 +118,12 @@ Takes an optional `FRAME' as reference."
 
 
 
+
+
          (builtin orange)
          (comment-delimiter )
          
-
+         
 
          ;; BG color
          (zk-hl       "#096BAA")
@@ -161,16 +164,16 @@ Takes an optional `FRAME' as reference."
      'zonokai
 
      ;; basic coloring
-     `(highlight                               ((,class (:background ,(color-darken-name zk-bg 5)))))
-     `(default                                 ((,class (:foreground ,zk-fg :background ,zk-bg))))
+     `(highlight                               ((,class (:background ,(color-darken-name base03 5)))))
+     `(default                                 ((,class (:foreground ,zk-fg :background ,base03))))
      `(fringe                                  ((,class (:foreground ,zk-comments))))
      `(shadow                                  ((,class (:foreground ,zk-comments :background ,zk-fg))))
      `(match                                   ((,class (:background ,base02))))
-     `(cursor                                  ((,class (:foreground ,zk-bg :background ,zk-cursor :invserse-video t))))
-     `(mouse                                   ((,class (:foreground ,zk-bg :background ,zk-fg :inverse-video t))))
-     `(button                                  ((,class (:background ,zk-bg :foreground ,green :weight bold :underline t))))
+     `(cursor                                  ((,class (:foreground ,base03 :background ,zk-cursor :invserse-video t))))
+     `(mouse                                   ((,class (:foreground ,base03 :background ,zk-fg :inverse-video t))))
+     `(button                                  ((,class (:background ,base03 :foreground ,green :weight bold :underline t))))
      `(escape-glyph-face                       ((,class (:foreground ,red))))
-     `(fringe                                  ((,class (:foreground ,zk-fg :background ,zk-bg))))
+     `(fringe                                  ((,class (:foreground ,zk-fg :background ,base03))))
      `(region                                  ((,class (:background ,zk-region))))
      `(idle-highlight                          ((,class (:foreground ,cyan :background ,blue))))
      `(hl-line                                 ((,class (:background ,base02 :foreground nil))))
@@ -185,7 +188,7 @@ Takes an optional `FRAME' as reference."
 
 
 ;;;;;; custom
-     `(custom-button                           ((,class (:background ,(color-darken-name zk-bg 40) :foreground ,(color-lighten-name green 10)))))
+     `(custom-button                           ((,class (:background ,(color-darken-name base03 40) :foreground ,(color-lighten-name green 10)))))
      `(custom-button-mouse                     ((,class (:background ,(color-darken-name zk-fg 60) :foreground ,(color-lighten-name cyan 60)))))
      `(custom-button-pressed                   ((,class (:background ,(color-darken-name cyan 10) :foreground ,(color-lighten-name cyan 60)))))
      `(custom-variable-tag                     ((,class (:foreground ,cyan))))
@@ -193,7 +196,7 @@ Takes an optional `FRAME' as reference."
 
      ;; compilation
      `(compilation-column-face                 ((,class (:foreground ,cyan :underline nil))))
-     `(compilation-column-number               ((,class (:foreground ,zk-bg :foreground ,cyan))))
+     `(compilation-column-number               ((,class (:foreground ,base03 :foreground ,cyan))))
 
      ;; diary
      `(diary                                   ((,class (:foreground ,yellow))))
@@ -217,12 +220,12 @@ Takes an optional `FRAME' as reference."
      `(font-lock-type-face                     ((,class (:foreground ,cyan))))
      `(font-lock-variable-name-face            ((,class (:foreground ,green))))
      `(font-lock-doc-face                      ((,class (:foreground ,magenta))))
-     `(font-lock-warning-face                  ((,class (:foreground ,yellow :background ,zk-bg :underline  t :weight bold))))
+     `(font-lock-warning-face                  ((,class (:foreground ,yellow :background ,base03 :underline  t :weight bold))))
 
 ;;;;;; modeline
-     `(mode-line                               ((,class (:foreground ,zk-fg :weight bold :background ,(color-darken-name zk-bg 7) :box (:line-width 1 :color ,(color-darken-name cyan 10))))))
+     `(mode-line                               ((,class (:foreground ,zk-fg :weight bold :background ,(color-darken-name base03 7) :box (:line-width 1 :color ,(color-darken-name cyan 10))))))
      `(mode-line-buffer-id                     ((,class (:foreground ,green :weight bold))))
-     `(mode-line-inactive                      ((,class (:foreground ,zk-fg :weight bold :background ,(color-darken-name zk-bg 30)))))
+     `(mode-line-inactive                      ((,class (:foreground ,zk-fg :weight bold :background ,(color-darken-name base03 30)))))
 
      `(secondary-selection                     ((,class (:foreground ,red))))
 
@@ -258,32 +261,32 @@ Takes an optional `FRAME' as reference."
      `(rainbow-delimiters-depth-10-face        ((,class (:foreground ,rb-5))))
      `(rainbow-delimiters-depth-11-face        ((,class (:foreground ,rb-1))))
      `(rainbow-delimiters-depth-12-face        ((,class (:foreground ,rb-2))))
-     `(rainbow-delimiters-unmatched-face       ((,class (:foreground ,zk-fg :background ,zk-bg :inverse-video t))))
+     `(rainbow-delimiters-unmatched-face       ((,class (:foreground ,zk-fg :background ,base03 :inverse-video t))))
 
 
 ;;;;;; column enforce
      `(column-enforce-face                     ((,class (:foreground ,blue))))
 
 ;;;;;; git gutter +
-     `(git-gutter+-modified                    ((,class (:foreground ,magenta  :background ,zk-bg))))
-     `(git-gutter+-added                       ((,class (:foreground ,green  :background ,zk-bg))))
-     `(git-gutter+-deleted                     ((,class (:foreground ,red   :background ,zk-bg))))
+     `(git-gutter+-modified                    ((,class (:foreground ,magenta  :background ,base03))))
+     `(git-gutter+-added                       ((,class (:foreground ,green  :background ,base03))))
+     `(git-gutter+-deleted                     ((,class (:foreground ,red   :background ,base03))))
 
 ;;;;;; git gutter
-     `(git-gutter:modified                     ((,class (:foreground ,magenta  :background ,zk-bg))))
-     `(git-gutteradded                         ((,class (:foreground ,green  :background ,zk-bg))))
-     `(git-gutter:deleted                      ((,class (:foreground ,red  :background ,zk-bg))))
+     `(git-gutter:modified                     ((,class (:foreground ,magenta  :background ,base03))))
+     `(git-gutteradded                         ((,class (:foreground ,green  :background ,base03))))
+     `(git-gutter:deleted                      ((,class (:foreground ,red  :background ,base03))))
      `(git-gutter-fr:added                     ((,class (:foreground ,green  :weight bold))))
      `(git-gutter-fr:deleted                   ((,class (:foreground ,red :weight bold))))
      `(git-gutter-fr:modified                  ((,class (:foreground ,magenta :weight bold))))
      
 ;;;;;; isearch
-     `(isearch                                 ((,class (:foreground ,zk-bg :background ,green :weight bold))))
-     `(isearch-fail                            ((,class (:foreground ,zk-bg :background ,red :weight bold))))
+     `(isearch                                 ((,class (:foreground ,base03 :background ,green :weight bold))))
+     `(isearch-fail                            ((,class (:foreground ,base03 :background ,red :weight bold))))
 
 ;;;;;; ace-jump-mode
-     `(ace-jump-face-background                ((,class (:foreground ,dark-gray :background ,zk-bg :inverse-video nil :weight bold))))
-     `(ace-jump-face-foreground                ((,class (:foreground ,red :background ,zk-bg :inverse-video nil :weight bold))))
+     `(ace-jump-face-background                ((,class (:foreground ,dark-gray :background ,base03 :inverse-video nil :weight bold))))
+     `(ace-jump-face-foreground                ((,class (:foreground ,red :background ,base03 :inverse-video nil :weight bold))))
 
 
 ;;;;;; fly spell
@@ -295,38 +298,38 @@ Takes an optional `FRAME' as reference."
      `(dired-ignored                           ((,class (:foreground ,(color-darken-name zk-fg 60) :background "transparent"))))
      `(dired-directory                         ((,class (:foreground ,cyan :weight normal))))
      `(dired-flagged                           ((,class (:foreground ,red))))
-     `(dired-header                            ((,class (:foreground ,magenta :background ,zk-bg))))
+     `(dired-header                            ((,class (:foreground ,magenta :background ,base03))))
 
 ;;;;;; magit
-     `(magit-tag                               ((,class (:foreground ,zk-bg :background ,green))))
+     `(magit-tag                               ((,class (:foreground ,base03 :background ,green))))
      `(git-commit-summary-face                 ((,class (:foreground ,magenta))))
      `(git-commit-branch-face                  ((,class (:foreground ,cyan))))
      `(git-commit-comment-file-face            ((,class (:foreground ,green))))
      `(git-commit-comment-heading-face         ((,class (:foreground ,orange))))
-     `(magit-diff-none                         ((,class (:foreground ,(color-lighten-name zk-bg 25) :background ,(color-darken-name zk-bg 5)))))
+     `(magit-diff-none                         ((,class (:foreground ,(color-lighten-name base03 25) :background ,(color-darken-name base03 5)))))
      `(magit-diff-del                          ((,class (:foreground ,(color-lighten-name red 25) :background ,(color-darken-name red 25)))))
      `(magit-diff-add                          ((,class (:foreground ,(color-lighten-name green 25) :background ,(color-darken-name green 25)))))
-     `(magit-section-title                     ((,class (:foreground ,green :background ,zk-bg :weight bold))))
+     `(magit-section-title                     ((,class (:foreground ,green :background ,base03 :weight bold))))
      `(magit-log-sha1                          ((,class (:foreground ,cyan))))
-     `(magit-branch                            ((,class (:foreground ,magenta :background ,zk-bg))))
+     `(magit-branch                            ((,class (:foreground ,magenta :background ,base03))))
      `(magit-key-mode-header-face              ((,class (:foreground ,green))))
      `(magit-key-mode-button-face              ((,class (:foreground ,yellow))))
-     `(magit-item-highlight                    ((,class (:background ,(color-darken-name zk-bg 2) :foreground ,cyan))))
+     `(magit-item-highlight                    ((,class (:background ,(color-darken-name base03 2) :foreground ,cyan))))
 
 ;;;;;; erm
      `(erm-sym-errline                         ((,class (:foreground ,cyan :background ,orange))))
 
 ;;;;;; rhtml-mode
-     `(erb-out-delim-face                      ((,class (:foreground ,orange :background ,(color-darken-name zk-bg 5)))))
-     `(erb-out-face                            ((,class (:background ,(color-darken-name zk-bg 5) :foreground ,yellow))))
+     `(erb-out-delim-face                      ((,class (:foreground ,orange :background ,(color-darken-name base03 5)))))
+     `(erb-out-face                            ((,class (:background ,(color-darken-name base03 5) :foreground ,yellow))))
      `(js2-function-call                       ((,class (:foreground ,cyan))))
 
 ;;;;;; sp pair overlay face
-     `(sp-pair-overlay-face                    ((,class (:background ,zk-bg))))
+     `(sp-pair-overlay-face                    ((,class (:background ,base03))))
 
 
 ;;;;;; Compnay
-     `(company-tooltip                         ((,class (:foreground ,zk-fg :background ,(color-darken-name zk-bg 10)))))
+     `(company-tooltip                         ((,class (:foreground ,zk-fg :background ,(color-darken-name base03 10)))))
      `(company-tooltip-selection               ((,class (:foreground ,dark-gray :background ,cyan))))
      `(company-tooltip-mouse                   ((,class (:background ,(color-darken-name red 30)))))
      `(company-tooltip-common                  ((,class (:foreground ,green ))))
@@ -334,7 +337,7 @@ Takes an optional `FRAME' as reference."
      `(company-scrollbar-fg                    ((,class (:background ,(color-darken-name cyan 20)))))
      `(company-scrollbar-bg                    ((,class (:background ,(color-darken-name cyan 40)))))
      `(company-preview                         ((,class (:background ,red))))
-     `(company-preview-common                  ((,class (:background ,zk-bg))))
+     `(company-preview-common                  ((,class (:background ,base03))))
 
 ;;;;;; eshell
      `(eshell-prompt                           ((,class (:foreground ,yellow :weight bold))))
@@ -351,8 +354,8 @@ Takes an optional `FRAME' as reference."
 
 
 ;;;;;; smartparens
-     `(sp-show-pair-mismatch-face              ((,class (:foreground ,red :background ,zk-bg :weight bold))))
-     `(sp-show-pair-match-face                 ((,class (:background ,zk-bg :weight bold))))
+     `(sp-show-pair-mismatch-face              ((,class (:foreground ,red :background ,base03 :weight bold))))
+     `(sp-show-pair-match-face                 ((,class (:background ,base03 :weight bold))))
 
 
 ;;;;;; undo-tree
@@ -363,16 +366,16 @@ Takes an optional `FRAME' as reference."
      `(undo-tree-visualizer-unmodified-face    ((,class (:foreground ,cyan))))
 
 ;;;;;; emmet mode
-     `(emmet-preview-input                     ((,class (:foreground ,cyan :background ,(color-darken-name zk-bg 10)))))
+     `(emmet-preview-input                     ((,class (:foreground ,cyan :background ,(color-darken-name base03 10)))))
 
 
 ;;;;;; whitespace-mode
-     `(whitespace-space                        ((,class (:background ,zk-bg :foreground ,zk-bg))))
-     `(whitespace-hspace                       ((,class (:background ,zk-bg :foreground ,zk-bg))))
-     `(whitespace-tab                          ((,class (:background ,(color-lighten-name zk-bg 2)))))
-     `(whitespace-newline                      ((,class (:foreground ,zk-bg))))
+     `(whitespace-space                        ((,class (:background ,base03 :foreground ,base03))))
+     `(whitespace-hspace                       ((,class (:background ,base03 :foreground ,base03))))
+     `(whitespace-tab                          ((,class (:background ,(color-lighten-name base03 2)))))
+     `(whitespace-newline                      ((,class (:foreground ,base03))))
      `(whitespace-trailing                     ((,class (:background ,(color-darken-name magenta 20)))))
-     `(whitespace-line                         ((,class (:background ,zk-bg :foreground ,magenta))))
+     `(whitespace-line                         ((,class (:background ,base03 :foreground ,magenta))))
      `(whitespace-space-before-tab             ((,class (:background ,orange :foreground ,orange))))
      `(whitespace-indentation                  ((,class (:background ,yellow :foreground ,red))))
      `(whitespace-empty                        ((,class (:background ,yellow))))
