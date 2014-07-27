@@ -18,3 +18,11 @@ By default, the darker theme will be used.
 ## Compliment version
 all I did to achieve the compliment version take the compliment of each color.
 hence the name....
+
+
+### Taking a look at magit
+
+![zonokai image](https://github.com/ZehCnaS34/zonokai-emacs/raw/master/magit.png)
+
+
+![zonokai image](https://github.com/ZehCnaS34/zonokai-emacs/raw/master/magit-compliment.png)
