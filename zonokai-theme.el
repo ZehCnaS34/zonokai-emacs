@@ -11,7 +11,7 @@
 ;; Copyright (C) 2013-2014
 
 ;; Author: Alex Sanchez <ar.sanchez@keythings.co>
-;; URL: http://github.com/ZehCnaS34/zonokai.git
+;; URL: http://github.com/ZehCnaS34/zonokai-emacs.git
 ;; Version: 20140523.2151
 ;; X-Original-Version: 20140310.1330
 ;; X-Original-Version: 0.2.0
@@ -84,7 +84,9 @@ Takes an optional `FRAME' as reference."
          ;; content tones
          (base01    (if-complement "#c6c6c6"))
          (base00    (if-complement "#eee"   ))
-         ;; accent tones
+
+
+         ;; base color pallet          
          (yellow    (if-complement "#E2D511"))    
          (yellow+10 (color-lighten-name yellow 10))
          (yellow-10 (color-darken-name yellow 10))
@@ -94,8 +96,7 @@ Takes an optional `FRAME' as reference."
          (brown     (if-complement "#B26800"))
          (brown+10  (color-lighten-name brown 10))
          (brown-10  (color-darken-name brown 10))
-         (red       (if-complement "#CC1514" 
-                                   (lambda (c) (color-darken-name c 30))))
+         (red       (if-complement "#CC1514" (lambda (c) (color-darken-name c 30))))
          (red+10    (color-lighten-name red 10))
          (red-10    (color-darken-name red 10))
          (magenta   (if-complement "#E318FF"))
@@ -117,43 +118,18 @@ Takes an optional `FRAME' as reference."
          (lite-gray (if-complement "#eeeeee"))
 
 
-
-
-
+         ;; helpers
+         (region (color-darken-name base03 10))
          (builtin orange)
-         (comment-delimiter )
-         
-         
-
-         ;; BG color
-         (zk-hl       "#096BAA")
-         (zk-fg       base00)
-         (zk-bg       base03)
-         (zk-hl-line  (color-darken-name zk-bg 5))
-         (zk-emph     "#2F157F")
-         (zk-comments (if-complement "#00A1FF"))
-         (zk-cursor   green)
-         (zk-region   (color-darken-name zk-bg 10))
-
-         ;; Accented colors
+         (comments (color-lighten-name base03 30))
 
 
-         ;;;; old rainbow stuff. still undecided about the new one
-         ;; rainbow colors
-         ;; (rb-1 "#FF400D")
-         ;; (rb-2 "#008EFF")
-         ;; (rb-3 "#E80C6A")
-         ;; (rb-4 "#570CF8")
-         ;; (rb-5 "#AA309F")
-
-
-         (rb-1 brown-10)
+         ;; rainbow scheme
+         (rb-1 green-10)
          (rb-2 magenta-10)
          (rb-3 orange-10)
          (rb-4 red-10)
-         (rb-5 yellow-10)
-
-
+         (rb-5 cyan-10)
          )
 
 
@@ -165,19 +141,19 @@ Takes an optional `FRAME' as reference."
 
      ;; basic coloring
      `(highlight                               ((,class (:background ,(color-darken-name base03 5)))))
-     `(default                                 ((,class (:foreground ,zk-fg :background ,base03))))
-     `(fringe                                  ((,class (:foreground ,zk-comments))))
-     `(shadow                                  ((,class (:foreground ,zk-comments :background ,zk-fg))))
+     `(default                                 ((,class (:foreground ,base00 :background ,base03))))
+     `(fringe                                  ((,class (:foreground ,base02))))
+     `(shadow                                  ((,class (:foreground ,base01 :background ,base00))))
      `(match                                   ((,class (:background ,base02))))
-     `(cursor                                  ((,class (:foreground ,base03 :background ,zk-cursor :invserse-video t))))
-     `(mouse                                   ((,class (:foreground ,base03 :background ,zk-fg :inverse-video t))))
+     `(cursor                                  ((,class (:foreground ,base03 :background ,green :invserse-video t))))
+     `(mouse                                   ((,class (:foreground ,base03 :background ,base00 :inverse-video t))))
      `(button                                  ((,class (:background ,base03 :foreground ,green :weight bold :underline t))))
      `(escape-glyph-face                       ((,class (:foreground ,red))))
-     `(fringe                                  ((,class (:foreground ,zk-fg :background ,base03))))
-     `(region                                  ((,class (:background ,zk-region))))
+     `(fringe                                  ((,class (:foreground ,base00 :background ,base03))))
+     `(region                                  ((,class (:background ,region))))
      `(idle-highlight                          ((,class (:foreground ,cyan :background ,blue))))
      `(hl-line                                 ((,class (:background ,base02 :foreground nil))))
-     `(widget-field                            ((,class (:background ,(color-darken-name zk-fg 60) :foreground ,(color-lighten-name magenta 10)))))
+     `(widget-field                            ((,class (:background ,(color-darken-name base00 60) :foreground ,(color-lighten-name magenta 10)))))
 
 
 ;;;;;; ido
@@ -189,7 +165,7 @@ Takes an optional `FRAME' as reference."
 
 ;;;;;; custom
      `(custom-button                           ((,class (:background ,(color-darken-name base03 40) :foreground ,(color-lighten-name green 10)))))
-     `(custom-button-mouse                     ((,class (:background ,(color-darken-name zk-fg 60) :foreground ,(color-lighten-name cyan 60)))))
+     `(custom-button-mouse                     ((,class (:background ,(color-darken-name base00 60) :foreground ,(color-lighten-name cyan 60)))))
      `(custom-button-pressed                   ((,class (:background ,(color-darken-name cyan 10) :foreground ,(color-lighten-name cyan 60)))))
      `(custom-variable-tag                     ((,class (:foreground ,cyan))))
      `(custom-group-tag                        ((,class (:foreground ,blue :weight bold))))
@@ -211,8 +187,8 @@ Takes an optional `FRAME' as reference."
 
      ;; fontlock
      `(font-lock-builtin-face                  ((,class (:foreground ,orange :weight bold))))
-     `(font-lock-comment-delimiter-face        ((,class (:foreground ,zk-comments))))
-     `(font-lock-comment-face                  ((,class (:foreground ,zk-comments))))
+     `(font-lock-comment-delimiter-face        ((,class (:foreground ,comments))))
+     `(font-lock-comment-face                  ((,class (:foreground ,comments))))
      `(font-lock-constant-face                 ((,class (:foreground ,yellow))))
      `(font-lock-string-face                   ((,class (:foreground ,magenta  :style :italic))))
      `(font-lock-keyword-face                  ((,class (:foreground ,blue :weight bold))))
@@ -223,9 +199,9 @@ Takes an optional `FRAME' as reference."
      `(font-lock-warning-face                  ((,class (:foreground ,yellow :background ,base03 :underline  t :weight bold))))
 
 ;;;;;; modeline
-     `(mode-line                               ((,class (:foreground ,zk-fg :weight bold :background ,(color-darken-name base03 7) :box (:line-width 1 :color ,(color-darken-name cyan 10))))))
+     `(mode-line                               ((,class (:foreground ,base00 :weight bold :background ,(color-darken-name base03 7) :box (:line-width 1 :color ,(color-darken-name cyan 10))))))
      `(mode-line-buffer-id                     ((,class (:foreground ,green :weight bold))))
-     `(mode-line-inactive                      ((,class (:foreground ,zk-fg :weight bold :background ,(color-darken-name base03 30)))))
+     `(mode-line-inactive                      ((,class (:foreground ,base00 :weight bold :background ,(color-darken-name base03 30)))))
 
      `(secondary-selection                     ((,class (:foreground ,red))))
 
@@ -261,7 +237,7 @@ Takes an optional `FRAME' as reference."
      `(rainbow-delimiters-depth-10-face        ((,class (:foreground ,rb-5))))
      `(rainbow-delimiters-depth-11-face        ((,class (:foreground ,rb-1))))
      `(rainbow-delimiters-depth-12-face        ((,class (:foreground ,rb-2))))
-     `(rainbow-delimiters-unmatched-face       ((,class (:foreground ,zk-fg :background ,base03 :inverse-video t))))
+     `(rainbow-delimiters-unmatched-face       ((,class (:foreground ,base00 :background ,base03 :inverse-video t))))
 
 
 ;;;;;; column enforce
@@ -295,7 +271,7 @@ Takes an optional `FRAME' as reference."
 
 
 ;;;;;; dired
-     `(dired-ignored                           ((,class (:foreground ,(color-darken-name zk-fg 60) :background "transparent"))))
+     `(dired-ignored                           ((,class (:foreground ,(color-darken-name base00 60) :background "transparent"))))
      `(dired-directory                         ((,class (:foreground ,cyan :weight normal))))
      `(dired-flagged                           ((,class (:foreground ,red))))
      `(dired-header                            ((,class (:foreground ,magenta :background ,base03))))
@@ -329,7 +305,7 @@ Takes an optional `FRAME' as reference."
 
 
 ;;;;;; Compnay
-     `(company-tooltip                         ((,class (:foreground ,zk-fg :background ,(color-darken-name base03 10)))))
+     `(company-tooltip                         ((,class (:foreground ,base00 :background ,(color-darken-name base03 10)))))
      `(company-tooltip-selection               ((,class (:foreground ,dark-gray :background ,cyan))))
      `(company-tooltip-mouse                   ((,class (:background ,(color-darken-name red 30)))))
      `(company-tooltip-common                  ((,class (:foreground ,green ))))
@@ -346,7 +322,7 @@ Takes an optional `FRAME' as reference."
      `(eshell-ls-clutter                       ((,class (:inherit font-lock-comment-face))))
      `(eshell-ls-directory                     ((,class (:foreground ,blue :weight bold))))
      `(eshell-ls-executable                    ((,class (:foreground ,red :weight bold))))
-     `(eshell-ls-unreadable                    ((,class (:foreground ,zk-fg))))
+     `(eshell-ls-unreadable                    ((,class (:foreground ,base00))))
      `(eshell-ls-missing                       ((,class (:inherit font-lock-warning-face))))
      `(eshell-ls-product                       ((,class (:inherit font-lock-doc-face))))
      `(eshell-ls-special                       ((,class (:foreground ,yellow :weight bold))))
@@ -359,9 +335,9 @@ Takes an optional `FRAME' as reference."
 
 
 ;;;;;; undo-tree
-     `(undo-tree-visualizer-active-branch-face ((,class (:foreground ,zk-fg :weight bold))))
+     `(undo-tree-visualizer-active-branch-face ((,class (:foreground ,base00 :weight bold))))
      `(undo-tree-visualizer-current-face       ((,class (:foreground ,red :weight bold))))
-     `(undo-tree-visualizer-default-face       ((,class (:foreground ,zk-fg))))
+     `(undo-tree-visualizer-default-face       ((,class (:foreground ,base00))))
      `(undo-tree-visualizer-register-face      ((,class (:foreground ,yellow))))
      `(undo-tree-visualizer-unmodified-face    ((,class (:foreground ,cyan))))
 
