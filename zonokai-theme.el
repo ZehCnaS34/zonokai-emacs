@@ -256,6 +256,7 @@ Takes an optional `FRAME' as reference."
      `(dired-header                            ((,class (:foreground ,magenta :background ,zk-bg))))
 
 ;;;;;; magit
+     `(magit-tag                               ((,class (:foreground ,zk-bg :background ,green))))
      `(git-commit-summary-face                 ((,class (:foreground ,magenta))))
      `(git-commit-branch-face                  ((,class (:foreground ,cyan))))
      `(git-commit-comment-file-face            ((,class (:foreground ,green))))

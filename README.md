@@ -1,6 +1,18 @@
 # Zonokai theme
 A blue based theme for emacs. With green red yellow orange accent colors.
 
+This theme is made for emacs 24 and up.
+
+## Installing
+This theme is available on [MELPA](http://melpa.milkbox.net) package.el
+If you don't have that repo, add it and then run a.
+
+`M-x package-install zonokai-theme`
+
+Then
+
+`M-x  load-theme`
+
 ### Customizing
 if you want to use the lighter theme then use this
 `(setq zk-compliment t)`
