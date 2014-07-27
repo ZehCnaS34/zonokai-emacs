@@ -57,14 +57,15 @@ The theme will have to be reloded after changing options."
 
 (deftheme zonokai "The zonokai color theme")
 
-
+(setq zk-compliment nil)
 
 (defun in-terminal-p ()
   "Return true if in a terminal."
   (not (display-graphic-p)))
+
 (defun if-compliment (color)
   (if zk-compliment
-      (color-complement-hex color)
+      (color-desaturate-name (color-darken-name  (color-complement-hex color) 10) 10)
     color))
 
 (defun create-zonokai-theme ()
@@ -85,7 +86,7 @@ Takes an optional `FRAME' as reference."
          (orange    (if-compliment "#FF5C40"))
          (brown     (if-compliment "#B26800"))
          (red       (if-compliment "#CC1514"))
-         (magenta   (if-compliment "#E518FF"))
+         (magenta   (if-compliment "#E318FF"))
          (violet    (if-compliment "#6C71C4"))
          (blue      (if-compliment "#3D7599"))
          (cyan      (if-compliment "#00FFDA"))
@@ -131,7 +132,7 @@ Takes an optional `FRAME' as reference."
      `(region                                  ((,class (:background ,zk-region))))
      `(idle-highlight                          ((,class (:foreground ,cyan :background ,blue))))
      `(hl-line                                 ((,class (:background ,zk-hl-line :foreground nil))))
-     `(widget-field                            ((,class (:background ,(color-darken-name zk-bg 30) :foreground ,(color-lighten-name magenta 10)))))
+     `(widget-field                            ((,class (:background ,(color-darken-name zk-fg 60) :foreground ,(color-lighten-name magenta 10)))))
 
 
 ;;;;;; ido
