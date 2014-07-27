@@ -49,24 +49,29 @@ The theme will have to be reloded after changing options."
   :group 'faces
   :prefix "zk-")
 
-(defcustom zk-compliment nil
-  "Converts all colors to their complimental colors"
+(defcustom zk-complement nil
+  "Converts all colors to their complemental colors"
   :group 'zonokai
   :options '(t nil)
   :type 'boolean)
 
 (deftheme zonokai "The zonokai color theme")
 
-(setq zk-compliment nil)
+(setq zk-complement t)
 
 (defun in-terminal-p ()
   "Return true if in a terminal."
   (not (display-graphic-p)))
 
-(defun if-compliment (color)
-  (if zk-compliment
-      (color-desaturate-name (color-darken-name  (color-complement-hex color) 10) 10)
-    color))
+(defun identity (x) x)
+
+(defun if-complement (color &optional fn)
+  (let ((complement-color (color-complement-hex color)))
+    (if (not zk-complement)
+        color
+      (if fn
+          (funcall fn complement-color) 
+        complement-color))))
 
 (defun create-zonokai-theme ()
   "Create the zonokai theme.
@@ -74,27 +79,48 @@ Takes an optional `FRAME' as reference."
   (let* ((class '((class color) (min-colors 256)))
 
          ;;; background tones 
-         (base03    (if-compliment "#011827"))
-         (base02    (if-compliment "#023658"))
-
+         (base03    (if-complement "#011827"))
+         (base02    (if-complement "#023658"))
          ;; content tones
-         (base01    (if-compliment "#c6c6c6"))
-         (base00    (if-compliment "#eee"))
-
+         (base01    (if-complement "#c6c6c6"))
+         (base00    (if-complement "#eee"   ))
          ;; accent tones
-         (yellow    (if-compliment "#E2D511"))         
-         (orange    (if-compliment "#FF5C40"))
-         (brown     (if-compliment "#B26800"))
-         (red       (if-compliment "#CC1514"))
-         (magenta   (if-compliment "#E318FF"))
-         (violet    (if-compliment "#6C71C4"))
-         (blue      (if-compliment "#3D7599"))
-         (cyan      (if-compliment "#00FFDA"))
-         (green     (if-compliment "#A6E22E"))
+         (yellow    (if-complement "#E2D511"))    
+         (yellow+10 (color-lighten-name yellow 10))
+         (yellow-10 (color-darken-name yellow 10))
+         (orange    (if-complement "#FF5C40"))
+         (orange+10 (color-lighten-name orange 10))
+         (orange-10 (color-darken-name orange 10))
+         (brown     (if-complement "#B26800"))
+         (brown+10  (color-lighten-name brown 10))
+         (brown-10  (color-darken-name brown 10))
+         (red       (if-complement "#CC1514" (lambda (c) (color-darken-name c 30))))
+         (red+10  (color-lighten-name red 10))
+         (red-10  (color-darken-name red 10))
+         (magenta   (if-complement "#E318FF"))
+         (magenta+10  (color-lighten-name magenta 10))
+         (magenta-10  (color-darken-name magenta 10))
+         (violet    (if-complement "#6C71C4"))
+         (violet+10  (color-lighten-name violet 10))
+         (violet-10  (color-darken-name violet 10))
+         (blue      (if-complement "#3D7599"))
+         (blue+10  (color-lighten-name blue 10))
+         (blue-10  (color-darken-name blue 10))
+         (cyan      (if-complement "#00FFDA"))
+         (cyan+10  (color-lighten-name cyan 10))
+         (cyan-10  (color-darken-name cyan 10))
+         (green     (if-complement "#A6E22E"))
+         (green+10  (color-lighten-name green 10))
+         (green-10  (color-darken-name green 10))
+         (dark-gray (if-complement "#444444"))
+         (lite-gray (if-complement "#eeeeee"))
 
+
+
+         (builtin orange)
+         (comment-delimiter )
          
-         (dark-gray (if-compliment "#444444"))
-         (lite-gray (if-compliment "#eeeeee"))
+
 
          ;; BG color
          (zk-hl       "#096BAA")
@@ -102,18 +128,34 @@ Takes an optional `FRAME' as reference."
          (zk-bg       base03)
          (zk-hl-line  (color-darken-name zk-bg 5))
          (zk-emph     "#2F157F")
-         (zk-comments (if-compliment "#00A1FF"))
+         (zk-comments (if-complement "#00A1FF"))
          (zk-cursor   green)
          (zk-region   (color-darken-name zk-bg 10))
 
          ;; Accented colors
 
+
+         ;;;; old rainbow stuff. still undecided about the new one
          ;; rainbow colors
-         (rb-1 "#FF400D")
-         (rb-2 "#008EFF")
-         (rb-3 "#E80C6A")
-         (rb-4 "#570CF8")
-         (rb-5 "#AA309F"))
+         ;; (rb-1 "#FF400D")
+         ;; (rb-2 "#008EFF")
+         ;; (rb-3 "#E80C6A")
+         ;; (rb-4 "#570CF8")
+         ;; (rb-5 "#AA309F")
+
+
+         (rb-1 brown-10)
+         (rb-2 magenta-10)
+         (rb-3 orange-10)
+         (rb-4 red-10)
+         (rb-5 yellow-10)
+
+
+         )
+
+
+
+
 
     (custom-theme-set-faces
      'zonokai
@@ -123,7 +165,7 @@ Takes an optional `FRAME' as reference."
      `(default                                 ((,class (:foreground ,zk-fg :background ,zk-bg))))
      `(fringe                                  ((,class (:foreground ,zk-comments))))
      `(shadow                                  ((,class (:foreground ,zk-comments :background ,zk-fg))))
-     `(match                                   ((,class (:background ,zk-hl))))
+     `(match                                   ((,class (:background ,base02))))
      `(cursor                                  ((,class (:foreground ,zk-bg :background ,zk-cursor :invserse-video t))))
      `(mouse                                   ((,class (:foreground ,zk-bg :background ,zk-fg :inverse-video t))))
      `(button                                  ((,class (:background ,zk-bg :foreground ,green :weight bold :underline t))))
@@ -131,7 +173,7 @@ Takes an optional `FRAME' as reference."
      `(fringe                                  ((,class (:foreground ,zk-fg :background ,zk-bg))))
      `(region                                  ((,class (:background ,zk-region))))
      `(idle-highlight                          ((,class (:foreground ,cyan :background ,blue))))
-     `(hl-line                                 ((,class (:background ,zk-hl-line :foreground nil))))
+     `(hl-line                                 ((,class (:background ,base02 :foreground nil))))
      `(widget-field                            ((,class (:background ,(color-darken-name zk-fg 60) :foreground ,(color-lighten-name magenta 10)))))
 
 
@@ -147,7 +189,7 @@ Takes an optional `FRAME' as reference."
      `(custom-button-mouse                     ((,class (:background ,(color-darken-name zk-fg 60) :foreground ,(color-lighten-name cyan 60)))))
      `(custom-button-pressed                   ((,class (:background ,(color-darken-name cyan 10) :foreground ,(color-lighten-name cyan 60)))))
      `(custom-variable-tag                     ((,class (:foreground ,cyan))))
-
+     `(custom-group-tag                        ((,class (:foreground ,blue :weight bold))))
 
      ;; compilation
      `(compilation-column-face                 ((,class (:foreground ,cyan :underline nil))))
