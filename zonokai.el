@@ -63,6 +63,18 @@ The theme will have to be reloded after changing options."
 
 (defun identity (x) x)
 
+
+(defun quick-color (face fg &optional bg)
+  "A function that generation a font face list
+so instead of writting a lot, I could do something like
+\",(quick-color 'font-lock blue)\" or I could also pass in
+background color"
+  (let ((class '((class-color) (min-colors 256))))
+    (if bg
+	`(face ((class (:foreground ,fg :background ,bg))))
+      `(face ((class (:foreground ,fg)))))))
+
+
 (defun create-zonokai-theme (complement theme-name)
   "Create the zonokai theme.
 Takes an optional `FRAME' as reference."
