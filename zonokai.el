@@ -282,8 +282,8 @@ Takes an optional `FRAME' as reference."
        `(isearch-fail                            ((,class (:foreground ,base03 :background ,red :weight bold))))
 
 ;;;;;; ace-jump-mode
-       `(ace-jump-face-background                ((,class (:foreground ,dark-gray :background ,base03 :inverse-video nil :weight bold))))
-       `(ace-jump-face-foreground                ((,class (:foreground ,red :background ,base03 :inverse-video nil :weight bold))))
+       `(ace-jump-face-background                ((,class (:foreground ,dark-gray :background ,base03))))
+       `(ace-jump-face-foreground                ((,class (:foreground ,cyan :background ,base03 :weight bold))))
 
 
 ;;;;;; fly spell
@@ -294,8 +294,13 @@ Takes an optional `FRAME' as reference."
 ;;;;;; dired
        `(dired-ignored                           ((,class (:foreground ,(color-darken-name base00 60) :background "transparent"))))
        `(dired-directory                         ((,class (:foreground ,cyan :weight normal))))
-       `(dired-flagged                           ((,class (:foreground ,red))))
+       `(dired-flagged                           ((,class (:foreground ,red-10))))
        `(dired-header                            ((,class (:foreground ,magenta :background ,base03))))
+       `(dired-warning                           ((,class (:foreground ,yellow :underline t :weight bold))))
+       `(dired-mark                              ((,class (:foreground ,orange))))
+       `(dired-marked                            ((,class (:foreground ,orange+10))))
+       `(dired-symlink                           ((,class (:foreground ,blue :weight bold))))
+       `(dired-perm-write                        ((,class (:foreground ,blue+10))))
 
 ;;;;;; magit
        `(magit-tag                               ((,class (:foreground ,base03 :background ,green))))
@@ -403,15 +408,15 @@ Takes an optional `FRAME' as reference."
 ;; fill-column: 95
 ;; End:
 
-;; ;; red theme development
-;; (deftheme zonokai-red "Red version of zonokai")
-;; (create-zonokai-theme t 'zonokai-red)
-;; (provide-theme 'zonokai-red)
+;; red theme development
+(deftheme zonokai-red "Red version of zonokai")
+(create-zonokai-theme t 'zonokai-red)
+(provide-theme 'zonokai-red)
 
-;; blue theme development
-(deftheme zonokai-blue "Blue version of zonokai")
-(create-zonokai-theme nil 'zonokai-blue)
-(provide-theme 'zonokai-blue)
+;; ;; blue theme development
+;; (deftheme zonokai-blue "Blue version of zonokai")
+;; (create-zonokai-theme nil 'zonokai-blue)
+;; (provide-theme 'zonokai-blue)
 
 
 (provide 'zonokai)
