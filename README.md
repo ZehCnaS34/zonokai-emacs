@@ -14,12 +14,12 @@ Then
 `M-x  load-theme`
 
 The default theme (and advised one) is zonokai-blue. To load that
-theme add
-	`(load-theme 'zonokai-blue t)`
+theme add:
+`(load-theme 'zonokai-blue t)`
 to your Emacs configuration.
 
 the Zonokai-red theme is still being polished. But if you still would like
-to try it out, add this line.
+to try it out, add:
 `(load-theme 'zonokai-blue t)`
 
 Tell me how you like it. If you want to add some font faces, just make a pull
