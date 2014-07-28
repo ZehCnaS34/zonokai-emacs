@@ -69,10 +69,10 @@ The theme will have to be reloded after changing options."
 so instead of writting a lot, I could do something like
 \",(quick-color 'font-lock blue)\" or I could also pass in
 background color"
-  (let ((class '((class-color) (min-colors 256))))
+  (let ((asdf t))
     (if bg
-	`(face ((class (:foreground ,fg :background ,bg))))
-      `(face ((class (:foreground ,fg)))))))
+	`(,face ((t (:foreground ,fg :background ,bg))))
+      `(,face ((t (:foreground ,fg)))))))
 
 
 (defun create-zonokai-theme (complement theme-name)
@@ -154,6 +154,7 @@ Takes an optional `FRAME' as reference."
        ;; basic coloring
 
        `(link                                    ((,class (:foreground ,cyan))))
+       `(link-visited                            ((,class (:foreground ,green))))
        `(highlight                               ((,class (:background ,(color-darken-name base03 5)))))
        `(default                                 ((,class (:foreground ,base00 :background ,base03))))
        `(fringe                                  ((,class (:foreground ,base02))))
@@ -178,11 +179,12 @@ Takes an optional `FRAME' as reference."
 
 
 ;;;;;; custom
-       `(custom-button                           ((,class (:background ,(color-darken-name base03 40) :foreground ,(color-lighten-name green 10)))))
+       `(custom-button                           ((,class (:background ,(color-darken-name base03 40) :foreground ,(color-lighten-name base00 10)))))
        `(custom-button-mouse                     ((,class (:background ,(color-darken-name base00 60) :foreground ,(color-lighten-name cyan 60)))))
        `(custom-button-pressed                   ((,class (:background ,(color-darken-name cyan 10) :foreground ,(color-lighten-name cyan 60)))))
        `(custom-variable-tag                     ((,class (:foreground ,cyan))))
        `(custom-group-tag                        ((,class (:foreground ,blue :weight bold))))
+       `(custom-state                            ((,class (:foreground ,red))))
 
        ;; compilation
        `(compilation-warning                     ((,class (:foreground ,red))))
@@ -319,6 +321,11 @@ Takes an optional `FRAME' as reference."
        `(sp-pair-overlay-face                    ((,class (:background ,base03))))
 
 
+;;;;;; toolbar
+       ;; `(tool-bar                                ((,class (:inherit mode-line ))))
+       `(tool-bar                                ((,class (:background ,cyan))))
+       `(header-line                             ((,class (:background ,base02 :foreground ,base00))))
+
 ;;;;;; Compnay
        `(company-tooltip                         ((,class (:foreground ,base00 :background ,(color-darken-name base03 10)))))
        `(company-tooltip-selection               ((,class (:foreground ,dark-gray :background ,cyan))))
@@ -329,6 +336,7 @@ Takes an optional `FRAME' as reference."
        `(company-scrollbar-bg                    ((,class (:background ,(color-darken-name cyan 40)))))
        `(company-preview                         ((,class (:background ,red))))
        `(company-preview-common                  ((,class (:background ,base03))))
+       `(company-echo-common                     ((,class (:foreground ,yellow))))
 
 ;;;;;; eshell
        `(eshell-prompt                           ((,class (:foreground ,yellow :weight bold))))
@@ -364,6 +372,8 @@ Takes an optional `FRAME' as reference."
 ;;;;;; minibuffer promt
        `(minibuffer-prompt                       ((,class (:foreground ,green))))
 
+;;;;;; yascroll
+       
 
 
 ;;;;;; whitespace-mode
@@ -390,8 +400,18 @@ Takes an optional `FRAME' as reference."
 ;; fill-column: 95
 ;; End:
 
-(provide 'zonokai)
+;; ;; red theme development
+;; (deftheme zonokai-red "Red version of zonokai")
+;; (create-zonokai-theme t 'zonokai-red)
+;; (provide-theme 'zonokai-red)
 
+;; ;; blue theme development
+;; (deftheme zonokai-blue "Blue version of zonokai")
+;; (create-zonokai-theme nil 'zonokai-blue)
+;; (provide-theme 'zonokai-blue)
+
+
+(provide 'zonokai)
 ;;; zonokai.el ends here
 
 
