@@ -257,7 +257,8 @@ Takes an optional `FRAME' as reference."
        `(rainbow-delimiters-depth-10-face        ((,class (:foreground ,rb-5))))
        `(rainbow-delimiters-depth-11-face        ((,class (:foreground ,rb-1))))
        `(rainbow-delimiters-depth-12-face        ((,class (:foreground ,rb-2))))
-       `(rainbow-delimiters-unmatched-face       ((,class (:foreground ,base00 :background ,base03 :inverse-video t))))
+       `(rainbow-delimiters-unmatched-face       ((,class (:foreground ,red :background ,base03 :inverse-video t))))
+       `(rainbow-delimiters-mismatched-face       ((,class (:foreground ,base00 :background ,base03 :inverse-video t))))
 
 
 ;;;;;; column enforce
@@ -325,8 +326,7 @@ Takes an optional `FRAME' as reference."
 
 
 ;;;;;; toolbar
-       ;; `(tool-bar                                ((,class (:inherit mode-line ))))
-       `(tool-bar                                ((,class (:background ,cyan))))
+       `(tool-bar                                ((,class (:background ,cyan :foreground ,base03))))
        `(header-line                             ((,class (:background ,base02 :foreground ,base00))))
 
 ;;;;;; Compnay
