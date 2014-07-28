@@ -330,8 +330,10 @@ Takes an optional `FRAME' as reference."
        `(erm-sym-errline                         ((,class (:foreground ,cyan :background ,orange))))
 
 ;;;;;; rhtml-mode
-       `(erb-out-delim-face                      ((,class (:foreground ,orange :background ,(color-darken-name base03 5)))))
-       `(erb-out-face                            ((,class (:background ,(color-darken-name base03 5) :foreground ,yellow))))
+       `(erb-out-delim-face                      ((,class (:foreground ,magenta :background ,base03:d))))
+       `(erb-out-face                            ((,class (:inherit erb-out-delim-face :foreground ,blue+10))))
+
+;;;;;; js2
        `(js2-function-call                       ((,class (:foreground ,cyan))))
 
 ;;;;;; sp pair overlay face
