@@ -342,16 +342,18 @@ Takes an optional `FRAME' as reference."
        `(header-line                             ((,class (:background ,base02 :foreground ,base00))))
 
 ;;;;;; Compnay
-       `(company-tooltip                         ((,class (:foreground ,base02:d :background ,base03:d))))
+       `(company-tooltip                         ((,class (:foreground ,base01:d :background ,base03:d))))
        `(company-tooltip-selection               ((,class (:foreground ,base02 :background ,base01))))
        `(company-tooltip-mouse                   ((,class (:background ,cyan-10))))
        `(company-tooltip-common                  ((,class (:foreground ,cyan-10 :background ,base03:d ))))
-       `(company-tooltip-common-selection        ((,class (:background ,base01 :foreground ,cyan-10 :weight bold :underline t))))
+       `(company-tooltip-common-selection        ((,class (:background ,base01:d :foreground ,magenta :weight bold :underline t))))
        `(company-scrollbar-fg                    ((,class (:background ,blue+10))))
        `(company-scrollbar-bg                    ((,class (:background ,blue-10))))
        `(company-preview                         ((,class (:background ,cyan+10))))
        `(company-preview-common                  ((,class (:background ,base03))))
        `(company-echo-common                     ((,class (:foreground ,yellow))))
+
+
 
 
 ;;;;;; eshell
@@ -417,15 +419,15 @@ Takes an optional `FRAME' as reference."
 ;; fill-column: 95
 ;; End:
 
-;; ;; red theme development
-;; (deftheme zonokai-red "Red version of zonokai")
-;; (create-zonokai-theme t 'zonokai-red)
-;; (provide-theme 'zonokai-red)
+;; red theme development
+(deftheme zonokai-red "Red version of zonokai")
+(create-zonokai-theme t 'zonokai-red)
+(provide-theme 'zonokai-red)
 
-;; ;; blue theme development
-;; (deftheme zonokai-blue "Blue version of zonokai")
-;; (create-zonokai-theme nil 'zonokai-blue)
-;; (provide-theme 'zonokai-blue)
+;; blue theme development
+(deftheme zonokai-blue "Blue version of zonokai")
+(create-zonokai-theme nil 'zonokai-blue)
+(provide-theme 'zonokai-blue)
 
 
 (provide 'zonokai)
