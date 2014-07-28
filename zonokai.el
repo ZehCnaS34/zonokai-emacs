@@ -330,8 +330,11 @@ Takes an optional `FRAME' as reference."
        `(erm-sym-errline                         ((,class (:foreground ,cyan :background ,orange))))
 
 ;;;;;; rhtml-mode
-       `(erb-out-delim-face                      ((,class (:foreground ,magenta :background ,base03:d))))
+       `(erb-out-delim-face                      ((,class (:foreground ,magenta+10 :background ,base03:d))))
        `(erb-out-face                            ((,class (:inherit erb-out-delim-face :foreground ,blue+10))))
+       `(erb-exec-delim-face                      ((,class (:foreground ,red+10 :background ,base03:d))))
+       `(erb-exec-face                           ((,class (:inherit erb-exec-delim-face))))
+
 
 ;;;;;; js2
        `(js2-function-call                       ((,class (:foreground ,cyan))))
