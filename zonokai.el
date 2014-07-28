@@ -1,12 +1,4 @@
-;; Local Variables:
-;; no-bytpe-compile: t
-;; eval: (when (fboundp 'rainbow-mode) (rainbow-mode 1))
-;; End:
-
-
-
-;;; zonokai-theme.el ends here
-;;; zonokai-theme.el --- blue based theme for emacs
+;;; zonokai.el --- blue based theme for emacs
 
 ;; Copyright (C) 2013-2014
 
@@ -31,10 +23,10 @@
 
 ;;; Commentary:
 ;;
-;; my personal touch on the Emacs monokai theme, with more a blue
-;; base to the theme, with green and different hues of blue and red
-;; for accenting
-;;
+;; A blue theme for emacs. Inspired by monokai but took a different lot turns 
+;; along the development path. 
+;; 
+;; 
 ;;; Code:
 
 (require 'dash)
@@ -435,15 +427,15 @@ Takes an optional `FRAME' as reference."
 ;; fill-column: 95
 ;; End:
 
-;; red theme development
-(deftheme zonokai-red "Red version of zonokai")
-(create-zonokai-theme t 'zonokai-red)
-(provide-theme 'zonokai-red)
+;; ;; red theme development
+;; (deftheme zonokai-red "Red version of zonokai")
+;; (create-zonokai-theme t 'zonokai-red)
+;; (provide-theme 'zonokai-red)
 
-;; blue theme development
-(deftheme zonokai-blue "Blue version of zonokai")
-(create-zonokai-theme nil 'zonokai-blue)
-(provide-theme 'zonokai-blue)
+;; ;; blue theme development
+;; (deftheme zonokai-blue "Blue version of zonokai")
+;; (create-zonokai-theme nil 'zonokai-blue)
+;; (provide-theme 'zonokai-blue)
 
 
 (provide 'zonokai)
