@@ -28,10 +28,13 @@ Tell me how you like it. If you want to add some font faces, just make a pull
 
 
 ### Customizing
-if you want to use the lighter theme then use this
-`(setq zk-complement t)`
 
-By default, the darker theme will be used.
+#### TODO:
+	Going to add some stuff like:
+		* mode-line settings
+		* fringe color
+		* italics
+		* bold
 
 ## Default version
 ![zonokai image](https://github.com/ZehCnaS34/zonokai-emacs/raw/master/syntax.png)
