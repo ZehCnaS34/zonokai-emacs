@@ -132,7 +132,6 @@ Takes an optional `FRAME' as reference."
 	   (comments blue)
 
 
-
 	   ;; rainbow scheme
 	   (rb-1 green-10)
 	   (rb-2 magenta-10)
@@ -191,6 +190,12 @@ Takes an optional `FRAME' as reference."
 
        ;;; helper
        `(success                                 ((,class (:foreground ,green))))
+
+
+       ;; completion
+       `(completions-annotations                  ((,class (:foreground ,base00 :italic t))))
+       `(completions-common-part                  ((,class (:foreground ,green))))
+       `(completions-first-difference             ((,class (:foreground ,cyan+10 :weight bold :underline t))))
 
 
        ;; compilation
@@ -388,7 +393,8 @@ Takes an optional `FRAME' as reference."
 ;;;;;; minibuffer promt
        `(minibuffer-prompt                       ((,class (:foreground ,green))))
 
-;;;;;; yascroll
+;;;;;; window number
+       `(window-number-face                      ((,class (:inherit mode-line :background ,base02 :box nil))))
        
 
 
