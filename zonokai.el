@@ -407,10 +407,10 @@ Takes an optional `FRAME' as reference."
 ;; (create-zonokai-theme t 'zonokai-red)
 ;; (provide-theme 'zonokai-red)
 
-;; blue theme development
-(deftheme zonokai-blue "Blue version of zonokai")
-(create-zonokai-theme nil 'zonokai-blue)
-(provide-theme 'zonokai-blue)
+;; ;; blue theme development
+;; (deftheme zonokai-blue "Blue version of zonokai")
+;; (create-zonokai-theme nil 'zonokai-blue)
+;; (provide-theme 'zonokai-blue)
 
 
 (provide 'zonokai)
