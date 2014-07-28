@@ -34,12 +34,12 @@ Tell me how you like it. If you want to add some font faces, just make a pull
 
 ### Customizing
 
-#### TODO:
+##### TODO:
 	Going to add some stuff like:
-		* mode-line settings
-		* fringe color
-		* italics
-		* bold
+		- mode-line settings
+		- fringe color
+		- italics
+		- bold
 
 ## Default version
 ![zonokai image](https://github.com/ZehCnaS34/zonokai-emacs/raw/master/syntax.png)
