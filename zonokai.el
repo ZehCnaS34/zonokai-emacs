@@ -221,6 +221,7 @@ Takes an optional `FRAME' as reference."
        `(mode-line                               ((,class (:foreground ,base00 :weight bold :background ,(color-darken-name base03 7) :box (:line-width 1 :color ,(color-darken-name cyan 10))))))
        `(mode-line-buffer-id                     ((,class (:foreground ,green :weight bold))))
        `(mode-line-inactive                      ((,class (:foreground ,base00 :weight bold :background ,(color-darken-name base03 30)))))
+       `(mode-line-highlight                     ((,class (:foreground ,cyan :background ,base03))))
 
        `(secondary-selection                     ((,class (:foreground ,red))))
 
@@ -263,11 +264,11 @@ Takes an optional `FRAME' as reference."
        `(column-enforce-face                     ((,class (:foreground ,blue))))
 
 ;;;;;; git gutter +
-       `(git-gutter+-modified                    ((,class (:foreground ,magenta  :background ,base03))))
+       `(git-gutter+-modified                    ((,class (:foreground ,cyan  :background ,base03))))
        `(git-gutter+-added                       ((,class (:foreground ,green  :background ,base03))))
        `(git-gutter+-deleted                     ((,class (:foreground ,red   :background ,base03))))
 
-;;;;;; git gutter
+;;;;;; Git gutter
        `(git-gutter:modified                     ((,class (:foreground ,magenta  :background ,base03))))
        `(git-gutteradded                         ((,class (:foreground ,green  :background ,base03))))
        `(git-gutter:deleted                      ((,class (:foreground ,red  :background ,base03))))
@@ -407,10 +408,10 @@ Takes an optional `FRAME' as reference."
 ;; (create-zonokai-theme t 'zonokai-red)
 ;; (provide-theme 'zonokai-red)
 
-;; ;; blue theme development
-;; (deftheme zonokai-blue "Blue version of zonokai")
-;; (create-zonokai-theme nil 'zonokai-blue)
-;; (provide-theme 'zonokai-blue)
+;; blue theme development
+(deftheme zonokai-blue "Blue version of zonokai")
+(create-zonokai-theme nil 'zonokai-blue)
+(provide-theme 'zonokai-blue)
 
 
 (provide 'zonokai)
