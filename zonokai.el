@@ -320,6 +320,8 @@ Takes an optional `FRAME' as reference."
        `(git-commit-branch-face                  ((,class (:foreground ,cyan))))
        `(git-commit-comment-file-face            ((,class (:foreground ,green))))
        `(git-commit-comment-heading-face         ((,class (:foreground ,orange))))
+
+
        `(magit-diff-none                         ((,class (:foreground ,base02 :background ,base03:d))))
        `(magit-diff-del                          ((,class (:foreground ,red+10 :background ,red-10))))
        `(magit-diff-add                          ((,class (:foreground ,green+10 :background ,green-10))))
@@ -329,6 +331,13 @@ Takes an optional `FRAME' as reference."
        `(magit-key-mode-header-face              ((,class (:foreground ,green))))
        `(magit-key-mode-button-face              ((,class (:foreground ,yellow))))
        `(magit-item-highlight                    ((,class (:background ,(color-darken-name base03 2) :foreground ,cyan))))
+
+
+       `(magit-log-reflog-label-commit           ((,class (:background ,cyan-10 :foreground ,base03 :box (:line-width 1 :color ,cyan+10)) )))
+       `(magit-log-reflog-label-checkout         ((,class (:background ,green-10 :foreground ,base03 :box (:line-width 1 :color ,green+10)))))
+       `(magit-log-reflog-label-merge            ((,class (:background ,magenta-10 :foreground ,base03 :box (:line-width 1 :color ,magenta+10)))))
+
+
 
 ;;;;;; erm
        `(erm-sym-errline                         ((,class (:foreground ,cyan :background ,orange))))
