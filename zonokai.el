@@ -349,7 +349,7 @@ Takes an optional `FRAME' as reference."
        `(company-tooltip-common-selection        ((,class (:background ,base01 :foreground ,cyan-10 :weight bold :underline t))))
        `(company-scrollbar-fg                    ((,class (:background ,blue+10))))
        `(company-scrollbar-bg                    ((,class (:background ,blue-10))))
-       `(company-preview                         ((,class (:background ,red))))
+       `(company-preview                         ((,class (:background ,cyan+10))))
        `(company-preview-common                  ((,class (:background ,base03))))
        `(company-echo-common                     ((,class (:foreground ,yellow))))
 
@@ -422,10 +422,10 @@ Takes an optional `FRAME' as reference."
 ;; (create-zonokai-theme t 'zonokai-red)
 ;; (provide-theme 'zonokai-red)
 
-;; blue theme development
-(deftheme zonokai-blue "Blue version of zonokai")
-(create-zonokai-theme nil 'zonokai-blue)
-(provide-theme 'zonokai-blue)
+;; ;; blue theme development
+;; (deftheme zonokai-blue "Blue version of zonokai")
+;; (create-zonokai-theme nil 'zonokai-blue)
+;; (provide-theme 'zonokai-blue)
 
 
 (provide 'zonokai)
