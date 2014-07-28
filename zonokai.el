@@ -153,14 +153,14 @@ Takes an optional `FRAME' as reference."
        `(link-visited                            ((,class (:foreground ,green))))
        `(highlight                               ((,class (:background ,(color-darken-name base03 5)))))
        `(default                                 ((,class (:foreground ,base00 :background ,base03))))
-       `(fringe                                  ((,class (:foreground ,base02))))
+       `(fringe                                  ((,class (:foreground ,base02 :background ,base02))))
        `(shadow                                  ((,class (:foreground ,base01 :background ,base00))))
        `(match                                   ((,class (:background ,base02))))
        `(cursor                                  ((,class (:foreground ,base03 :background ,green :invserse-video t))))
        `(mouse                                   ((,class (:foreground ,base03 :background ,base00 :inverse-video t))))
        `(button                                  ((,class (:background ,base03 :foreground ,green :weight bold :underline t))))
        `(escape-glyph-face                       ((,class (:foreground ,red))))
-       `(fringe                                  ((,class (:foreground ,base00 :background ,base03))))
+
        `(region                                  ((,class (:background ,region))))
        `(idle-highlight                          ((,class (:foreground ,cyan :background ,blue))))
        `(hl-line                                 ((,class (:background ,base02 :foreground nil))))
@@ -275,17 +275,15 @@ Takes an optional `FRAME' as reference."
        `(column-enforce-face                     ((,class (:foreground ,blue))))
 
 ;;;;;; git gutter +
-       `(git-gutter+-modified                    ((,class (:foreground ,cyan  :background ,base03))))
-       `(git-gutter+-added                       ((,class (:foreground ,green  :background ,base03))))
-       `(git-gutter+-deleted                     ((,class (:foreground ,red   :background ,base03))))
-
-;;;;;; Git gutter
-       `(git-gutter:modified                     ((,class (:foreground ,magenta  :background ,base03))))
-       `(git-gutteradded                         ((,class (:foreground ,green  :background ,base03))))
-       `(git-gutter:deleted                      ((,class (:foreground ,red  :background ,base03))))
-       `(git-gutter-fr:added                     ((,class (:foreground ,green  :weight bold))))
-       `(git-gutter-fr:deleted                   ((,class (:foreground ,red :weight bold))))
-       `(git-gutter-fr:modified                  ((,class (:foreground ,magenta :weight bold))))
+       `(git-gutter+-modified                    ((,class (:inherit fringe :foreground ,base01))))
+       `(git-gutter+-added                       ((,class (:inherit fringe :foreground ,green))))
+       `(git-gutter+-deleted                     ((,class (:inherit fringe :foreground ,red))))
+       `(git-gutter:modified                     ((,class (:inherit git-gutter+-modified))))
+       `(git-gutter:added                        ((,class (:inherit git-gutter+-added))))
+       `(git-gutter:deleted                      ((,class (:inherit git-gutter+-deleted))))
+       `(git-gutter-fr:added                     ((,class (:inherit git-gutter+-added))))
+       `(git-gutter-fr:deleted                   ((,class (:inherit git-gutter+-deleted))))
+       `(git-gutter-fr:modified                  ((,class (:inherit git-gutter+-modified))))
        
 ;;;;;; isearch
        `(isearch                                 ((,class (:foreground ,base03 :background ,green :weight bold))))
