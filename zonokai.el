@@ -153,7 +153,7 @@ Takes an optional `FRAME' as reference."
        `(link-visited                            ((,class (:foreground ,green))))
        `(highlight                               ((,class (:background ,(color-darken-name base03 5)))))
        `(default                                 ((,class (:foreground ,base00 :background ,base03))))
-       `(fringe                                  ((,class (:foreground ,base02 :background ,base02))))
+       `(fringe                                  ((,class (:foreground ,base00 :background ,base03))))
        `(shadow                                  ((,class (:foreground ,base01 :background ,base00))))
        `(match                                   ((,class (:background ,base02))))
        `(cursor                                  ((,class (:foreground ,base03 :background ,green :invserse-video t))))
@@ -307,8 +307,8 @@ Takes an optional `FRAME' as reference."
        `(dired-warning                           ((,class (:foreground ,yellow :underline t :weight bold))))
        `(dired-mark                              ((,class (:foreground ,orange))))
        `(dired-marked                            ((,class (:foreground ,orange+10))))
-       `(dired-symlink                           ((,class (:foreground ,blue :weight bold))))
-       `(dired-perm-write                        ((,class (:foreground ,blue+10))))
+       `(dired-symlink                           ((,class (:foreground ,cyan+10 :weight bold))))
+       `(dired-perm-write                        ((,class (:foreground ,cyan+10))))
 
 ;;;;;; magit
        `(magit-tag                               ((,class (:foreground ,base03 :background ,green))))
@@ -357,8 +357,6 @@ Takes an optional `FRAME' as reference."
        `(company-preview                         ((,class (:background ,cyan+10))))
        `(company-preview-common                  ((,class (:background ,base03))))
        `(company-echo-common                     ((,class (:foreground ,yellow))))
-
-
 
 
 ;;;;;; eshell
