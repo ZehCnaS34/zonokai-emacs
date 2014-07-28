@@ -134,7 +134,7 @@ Takes an optional `FRAME' as reference."
 	   (builtin orange)
 	   ;; is complement it reverts complement color to blue color
 	   (comments (if-complement-s blue+10 (lambda (c) blue-10)))
-
+     (strings  (if-complement-s magenta (lambda (c) green-10)))
 
 	   ;; rainbow scheme
 	   (rb-1 green-10)
@@ -223,7 +223,7 @@ Takes an optional `FRAME' as reference."
        `(font-lock-comment-delimiter-face        ((,class (:foreground ,comments))))
        `(font-lock-comment-face                  ((,class (:foreground ,comments))))
        `(font-lock-constant-face                 ((,class (:foreground ,yellow))))
-       `(font-lock-string-face                   ((,class (:foreground ,magenta  :style :italic))))
+       `(font-lock-string-face                   ((,class (:foreground ,strings :italic t))))
        `(font-lock-keyword-face                  ((,class (:foreground ,blue :weight bold))))
        `(font-lock-function-name-face            ((,class (:foreground ,cyan :weight bold))))
        `(font-lock-type-face                     ((,class (:foreground ,cyan))))
