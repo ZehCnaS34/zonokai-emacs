@@ -41,17 +41,10 @@ Going to add some stuff like:
 - italics
 - bold
 
-## Default version
-![zonokai image](https://github.com/ZehCnaS34/zonokai-emacs/raw/master/syntax.png)
+## blue version
+![blue](https://github.com/ZehCnaS34/zonokai-emacs/raw/master/blue.png)
 
 
-## Complement Version
-![zonokai image](https://github.com/ZehCnaS34/zonokai-emacs/raw/master/syntax-compliment.png)
+## red Version
+![red](https://github.com/ZehCnaS34/zonokai-emacs/raw/master/red.png)
 
-
-### Taking a look at magit
-**Theme**: Zonokai, Zonokai-complement
-![zonokai image](https://github.com/ZehCnaS34/zonokai-emacs/raw/master/magit.png)
-
-
-![zonokai image](https://github.com/ZehCnaS34/zonokai-emacs/raw/master/magit-compliment.png)
