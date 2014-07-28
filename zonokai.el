@@ -63,7 +63,7 @@ so instead of writting a lot, I could do something like
 background color"
   (let ((asdf t))
     (if bg
-	`(,face ((t (:foreground ,fg :background ,bg))))
+        `(,face ((t (:foreground ,fg :background ,bg))))
       `(,face ((t (:foreground ,fg)))))))
 
 
@@ -428,9 +428,4 @@ Takes an optional `FRAME' as reference."
 ;;; zonokai.el ends here
 
 
- 
 
-
-
-
-(require 'grizzl)
