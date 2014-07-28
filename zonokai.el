@@ -49,14 +49,6 @@ The theme will have to be reloded after changing options."
   :group 'faces
   :prefix "zk-")
 
-(defcustom zk-complement nil
-  "Converts all colors to their complemental colors"
-  :group 'zonokai
-  :options '(t nil)
-  :type 'boolean)
-
-(setq zk-complement nil)
-
 (defun in-terminal-p ()
   "Return true if in a terminal."
   (not (display-graphic-p)))
@@ -184,7 +176,17 @@ Takes an optional `FRAME' as reference."
        `(custom-button-pressed                   ((,class (:background ,(color-darken-name cyan 10) :foreground ,(color-lighten-name cyan 60)))))
        `(custom-variable-tag                     ((,class (:foreground ,cyan))))
        `(custom-group-tag                        ((,class (:foreground ,blue :weight bold))))
-       `(custom-state                            ((,class (:foreground ,red))))
+       `(custom-state                            ((,class (:foreground ,orange))))
+       `(custom-set                              ((,class (:foreground ,base03 :background ,cyan))))
+
+       `(custom-themed                           ((,class (:background ,blue :foreground ,base01))))
+       `(custom-changed                          ((,class (:background ,(color-darken-name blue 20) :foreground ,base01))))
+       `(custom-invalid                          ((,class (:background ,red :foreground ,yellow))))
+       `(custom-modified                         ((,class (:background ,blue :foreground ,base01))))
+
+       ;;; helper
+       `(success                                 ((,class (:foreground ,green))))
+
 
        ;; compilation
        `(compilation-warning                     ((,class (:foreground ,red))))
@@ -405,10 +407,10 @@ Takes an optional `FRAME' as reference."
 ;; (create-zonokai-theme t 'zonokai-red)
 ;; (provide-theme 'zonokai-red)
 
-;; ;; blue theme development
-;; (deftheme zonokai-blue "Blue version of zonokai")
-;; (create-zonokai-theme nil 'zonokai-blue)
-;; (provide-theme 'zonokai-blue)
+;; blue theme development
+(deftheme zonokai-blue "Blue version of zonokai")
+(create-zonokai-theme nil 'zonokai-blue)
+(provide-theme 'zonokai-blue)
 
 
 (provide 'zonokai)
@@ -420,3 +422,4 @@ Takes an optional `FRAME' as reference."
 
 
 
+(require 'grizzl)
