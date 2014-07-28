@@ -13,14 +13,14 @@ Then
 
 `M-x  load-theme`
 
-The default theme (and advised one) is zonokai-blue. To load that
+The default theme (and advised one) is Zonokai-blue. To load the blue
 theme add:
 `(load-theme 'zonokai-blue t)`
 to your Emacs configuration.
 
 the Zonokai-red theme is still being polished. But if you still would like
 to try it out, add:
-`(load-theme 'zonokai-blue t)`
+`(load-theme 'zonokai-red t)`
 
 Tell me how you like it. If you want to add some font faces, just make a pull
 
@@ -42,11 +42,6 @@ Tell me how you like it. If you want to add some font faces, just make a pull
 
 ## Complement Version
 ![zonokai image](https://github.com/ZehCnaS34/zonokai-emacs/raw/master/syntax-compliment.png)
-
-
-## Complement version
-all I did to achieve the complement version take the complement of each color.
-hence the name....
 
 
 ### Taking a look at magit
