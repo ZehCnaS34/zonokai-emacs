@@ -76,13 +76,15 @@ The theme will have to be reloded after changing options."
 (defun create-zonokai-theme (complement theme-name)
   "Create the zonokai theme.
 Takes an optional `FRAME' as reference."
-  (cl-flet ((if-complement 
-	     (color &optional fn) (let ((complement-color (color-complement-hex color)))
-				    (if (not complement)
-					color
-				      (if fn
-					  (funcall fn complement-color) 
-					complement-color)))))
+  (cl-flet* ((complement (color) (color-complement-hex color))
+	     (if-complement-s (color &optional fn) (funcall fn color))
+	     (if-complement 
+		 (color &optional fn) (let ((complement-color (color-complement-hex color)))
+					(if (not complement)
+					    color
+					  (if fn
+					      (funcall fn complement-color) 
+					    complement-color)))))
     (let* ((class '((class color) (min-colors 256)))
 	   ;; background tones 
 	   (base03    (if-complement "#011827"))
@@ -127,7 +129,9 @@ Takes an optional `FRAME' as reference."
 	   ;; helpers
 	   (region (color-darken-name base03 10))
 	   (builtin orange)
-	   (comments (color-lighten-name base03 30))
+	   ;; is complement it reverts complement color to blue color
+	   (comments (if-complement (color-darken-name base03 30)))
+
 
 
 	   ;; rainbow scheme
