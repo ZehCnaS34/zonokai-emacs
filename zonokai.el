@@ -87,6 +87,11 @@ Takes an optional `FRAME' as reference."
 	   (base01    (if-complement "#c6c6c6"))
 	   (base00    (if-complement "#eee"   ))
 
+     ;; base derived tones
+     (base03:d (color-darken-name base03 3))
+     (base02:d (color-darken-name base02 3))
+     (base01:d (color-darken-name base01 3))
+     (base00:d (color-darken-name base00 3))
 
 	   ;; base color pallet          
 	   (yellow    (if-complement "#E2D511"))    
