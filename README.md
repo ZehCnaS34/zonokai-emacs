@@ -16,14 +16,14 @@ Then
 The default theme (and advised one) is Zonokai-blue. To load the blue
 theme add:
 
-	`(load-theme 'zonokai-blue t)`
+	(load-theme 'zonokai-blue t)
 	
 to your Emacs configuration.
 
 the Zonokai-red theme is still being polished. But if you still would like
 to try it out, add:
 
-	`(load-theme 'zonokai-red t)`
+	(load-theme 'zonokai-red t)
 
 
 
