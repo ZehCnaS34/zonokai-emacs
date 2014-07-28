@@ -14,7 +14,9 @@ Then
 `M-x  load-theme`
 
 The default theme (and advised one) is zonokai-blue. To load that
-theme add `(load-theme 'zonokai-blue t)` to your Emacs configuration.
+theme add
+	`(load-theme 'zonokai-blue t)`
+to your Emacs configuration.
 
 the Zonokai-red theme is still being polished. But if you still would like
 to try it out, add this line.
