@@ -316,7 +316,7 @@ Takes an optional `FRAME' as reference."
 
 ;;;;;; magit
        `(magit-tag                               ((,class (:foreground ,base03 :background ,green))))
-       `(git-commit-summary-face                 ((,class (:foreground ,magenta))))
+       `(git-commit-summary-face                 ((,class (:inherit font-lock-string-face))))
        `(git-commit-branch-face                  ((,class (:foreground ,cyan))))
        `(git-commit-comment-file-face            ((,class (:foreground ,green))))
        `(git-commit-comment-heading-face         ((,class (:foreground ,orange))))
