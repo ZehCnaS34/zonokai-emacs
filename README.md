@@ -45,10 +45,10 @@ Going to add some stuff like:
 - italics
 - bold
 
-## blue version
+## Blue version
 ![blue](https://github.com/ZehCnaS34/zonokai-emacs/raw/master/blue.png)
 
 
-## red Version
+## Red version
 ![red](https://github.com/ZehCnaS34/zonokai-emacs/raw/master/red.png)
 
