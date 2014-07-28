@@ -63,16 +63,6 @@ The theme will have to be reloded after changing options."
 
 (defun identity (x) x)
 
-;; (defun if-complement (color &optional fn)
-;;   (let ((complement-color (color-complement-hex color)))
-;;     (if (not zk-complement)
-;;         color
-;;       (if fn
-;;           (funcall fn complement-color) 
-;;         complement-color))))
-
-
-
 (defun create-zonokai-theme (complement theme-name)
   "Create the zonokai theme.
 Takes an optional `FRAME' as reference."
@@ -130,7 +120,7 @@ Takes an optional `FRAME' as reference."
 	   (region (color-darken-name base03 10))
 	   (builtin orange)
 	   ;; is complement it reverts complement color to blue color
-	   (comments (if-complement (color-darken-name base03 30)))
+	   (comments blue)
 
 
 
@@ -148,8 +138,10 @@ Takes an optional `FRAME' as reference."
 
       (custom-theme-set-faces
        theme-name
-
+       
        ;; basic coloring
+
+       `(link                                    ((,class (:foreground ,cyan))))
        `(highlight                               ((,class (:background ,(color-darken-name base03 5)))))
        `(default                                 ((,class (:foreground ,base00 :background ,base03))))
        `(fringe                                  ((,class (:foreground ,base02))))
@@ -181,6 +173,7 @@ Takes an optional `FRAME' as reference."
        `(custom-group-tag                        ((,class (:foreground ,blue :weight bold))))
 
        ;; compilation
+       `(compilation-warning                     ((,class (:foreground ,red))))
        `(compilation-column-face                 ((,class (:foreground ,cyan :underline nil))))
        `(compilation-column-number               ((,class (:foreground ,base03 :foreground ,cyan))))
 
@@ -353,6 +346,12 @@ Takes an optional `FRAME' as reference."
 
 ;;;;;; emmet mode
        `(emmet-preview-input                     ((,class (:foreground ,cyan :background ,(color-darken-name base03 10)))))
+
+
+
+;;;;;; minibuffer promt
+       `(minibuffer-prompt                       ((,class (:foreground ,green))))
+
 
 
 ;;;;;; whitespace-mode
