@@ -160,7 +160,7 @@ Takes an optional `FRAME' as reference."
        `(button                                  ((,class (:background ,base03 :foreground ,green :weight bold :underline t))))
        `(escape-glyph-face                       ((,class (:foreground ,red))))
 
-       `(region                                  ((,class (:inherit default :background ,region))))
+       `(region                                  ((,class (:background ,region :foreground "transparent"))))
        `(idle-highlight                          ((,class (:foreground ,cyan :background ,blue))))
        `(hl-line                                 ((,class (:background ,base02 :foreground nil))))
        `(widget-field                            ((,class (:background ,(color-darken-name base00 60) :foreground ,(color-lighten-name magenta 10)))))
