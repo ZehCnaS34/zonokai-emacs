@@ -463,15 +463,15 @@ Takes an optional `FRAME' as reference."
 ;; fill-column: 95
 ;; End:
 
-;; red theme development
-(deftheme zonokai-red "Red version of zonokai")
-(create-zonokai-theme t 'zonokai-red)
-(provide-theme 'zonokai-red)
+;; ;; red theme development
+;; (deftheme zonokai-red "Red version of zonokai")
+;; (create-zonokai-theme t 'zonokai-red)
+;; (provide-theme 'zonokai-red)
 
-;; blue theme development
-(deftheme zonokai-blue "Blue version of zonokai")
-(create-zonokai-theme nil 'zonokai-blue)
-(provide-theme 'zonokai-blue)
+;; ;; blue theme development
+;; (deftheme zonokai-blue "Blue version of zonokai")
+;; (create-zonokai-theme nil 'zonokai-blue)
+;; (provide-theme 'zonokai-blue)
 
 
 (provide 'zonokai)
