@@ -42,6 +42,22 @@ The theme will have to be reloded after changing options."
   :group 'faces
   :prefix "zk-")
 
+(defcustom zk-mode-line-box t
+  "the cyan outline around the modeline"
+  :type 'boolean
+  :group 'zonokai)
+
+(defcustom zk-string-italics t
+  "Toggle if strings have italics"
+  :type 'boolean
+  :group 'zonokai)
+
+(defcustom zk-distinct-fringe nil
+  "Make the fringe the same color as the active mode-line"
+  :type 'boolean
+  :group 'zonokai)
+(setq zk-distinct-fringe t)
+
 (defun in-terminal-p ()
   "Return true if in a terminal."
   (not (display-graphic-p)))
@@ -74,18 +90,22 @@ Takes an optional `FRAME' as reference."
                                            (funcall fn complement-color) 
                                          complement-color)))))
     (let* ((class '((class color) (min-colors 256)))
-	   ;; background tones 
-	   (base03    (if-complement "#011827"))
-	   (base02    (if-complement "#023658"))
-	   ;; content tones
-	   (base01    (if-complement "#c6c6c6"))
+           ;; background tones 
+           (base03    (if-complement "#011827"))
+           (base02    (if-complement "#023658"))
+           ;; content tones
+           (base01    (if-complement "#c6c6c6"))
 	   (base00    (if-complement "#eee"   ))
 
      ;; base derived tones
      (base03:d (color-darken-name base03 3))
+     (base03:dd (color-darken-name base03:d 6))
      (base02:d (color-darken-name base02 3))
+     (base02:dd (color-darken-name base02:d 6))
      (base01:d (color-darken-name base01 3))
+     (base01:dd (color-darken-name base01:d 6))
      (base00:d (color-darken-name base00 3))
+     (base00:dd (color-darken-name base00:d 6))
 
 	   ;; base color pallet          
 	   (yellow    (if-complement "#E2D511"))    
@@ -155,7 +175,7 @@ Takes an optional `FRAME' as reference."
        `(link-visited                            ((,class (:foreground ,green))))
        `(highlight                               ((,class (:background ,(color-darken-name base03 5)))))
        `(default                                 ((,class (:foreground ,base00 :background ,base03))))
-       `(fringe                                  ((,class (:foreground ,base00 :background ,base03))))
+       `(fringe                                  ((,class (:foreground ,base00 :background ,(if zk-distinct-fringe base03:d base03)))))
        `(shadow                                  ((,class (:foreground ,blue-10 :background ,base03))))
        `(match                                   ((,class (:background ,base02))))
        `(cursor                                  ((,class (:foreground ,base03 :background ,green :invserse-video t))))
@@ -224,7 +244,7 @@ Takes an optional `FRAME' as reference."
        `(font-lock-comment-delimiter-face        ((,class (:foreground ,comments))))
        `(font-lock-comment-face                  ((,class (:foreground ,comments))))
        `(font-lock-constant-face                 ((,class (:foreground ,yellow))))
-       `(font-lock-string-face                   ((,class (:foreground ,strings :italic (if (in-terminal-p) nil t)))))
+       `(font-lock-string-face                   ((,class (:foreground ,strings :italics ,zk-string-italics))))
        `(font-lock-keyword-face                  ((,class (:foreground ,blue :weight bold))))
        `(font-lock-function-name-face            ((,class (:foreground ,cyan :weight bold))))
        `(font-lock-type-face                     ((,class (:foreground ,cyan))))
@@ -233,11 +253,10 @@ Takes an optional `FRAME' as reference."
        `(font-lock-warning-face                  ((,class (:foreground ,yellow :background ,base03 :underline  t :weight bold))))
 
 ;;;;;; modeline
-       `(mode-line                               ((,class (:foreground ,base00 :weight bold :background ,(color-darken-name base03 7) :box (:line-width 1 :color ,(color-darken-name cyan 10))))))
+       `(mode-line                               ((,class (:background  ,base03:dd :foreground ,base00 :box ,(if zk-mode-line-box `(:line-width 1 :color ,cyan-10) nil)))))
        `(mode-line-buffer-id                     ((,class (:foreground ,green :weight bold))))
-       `(mode-line-inactive                      ((,class (:foreground ,base00 :weight bold :background ,(color-darken-name base03 30)))))
+       `(mode-line-inactive                      ((,class (:inherit mode-line :background ,base03:d :box nil))))
        `(mode-line-highlight                     ((,class (:foreground ,cyan :background ,base03))))
-
        `(secondary-selection                     ((,class (:foreground ,red))))
 
 ;;;;;; Enh-ruby
