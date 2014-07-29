@@ -166,6 +166,9 @@ Takes an optional `FRAME' as reference."
        `(widget-field                            ((,class (:background ,(color-darken-name base00 60) :foreground ,(color-lighten-name magenta 10)))))
 
 
+       `(variable-pitch                          ((,class (:font-family "ubuntu mono"))))
+
+
 ;;;;;; ido
        `(ido-subdir                              ((,class (:foreground ,green))))
        `(ido-first-match                         ((,class (:foreground ,yellow :weight bold))))
@@ -403,6 +406,14 @@ Takes an optional `FRAME' as reference."
 
 ;;;;;; window number
        `(window-number-face                      ((,class (:inherit mode-line :background ,base02 :box nil))))
+
+
+;;;; helm
+       `(helm-M-x-key                            ((,class (:foreground ,yellow :underline t))))
+       `(helm-source-header                      ((,class (:foreground ,base03 :background ,blue+10))))
+       `(helm-selection                          ((,class (:foreground ,base02:d :background ,green))))
+       `(helm-header                             ((,class (:foreground ,base00 :background ,blue-10 :height 1.2))))
+       `(helm-candidate-number                   ((,class (:inherit mode-line :background ,cyan-10))))
        
 
 
@@ -430,15 +441,15 @@ Takes an optional `FRAME' as reference."
 ;; fill-column: 95
 ;; End:
 
-;; ;; red theme development
-;; (deftheme zonokai-red "Red version of zonokai")
-;; (create-zonokai-theme t 'zonokai-red)
-;; (provide-theme 'zonokai-red)
+;; red theme development
+(deftheme zonokai-red "Red version of zonokai")
+(create-zonokai-theme t 'zonokai-red)
+(provide-theme 'zonokai-red)
 
-;; ;; blue theme development
-;; (deftheme zonokai-blue "Blue version of zonokai")
-;; (create-zonokai-theme nil 'zonokai-blue)
-;; (provide-theme 'zonokai-blue)
+;; blue theme development
+(deftheme zonokai-blue "Blue version of zonokai")
+(create-zonokai-theme nil 'zonokai-blue)
+(provide-theme 'zonokai-blue)
 
 
 (provide 'zonokai)
