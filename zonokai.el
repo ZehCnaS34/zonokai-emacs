@@ -158,7 +158,7 @@ Takes an optional `FRAME' as reference."
        `(highlight                               ((,class (:background ,(color-darken-name base03 5)))))
        `(default                                 ((,class (:foreground ,base00 :background ,base03))))
        `(fringe                                  ((,class (:foreground ,base00 :background ,base03))))
-       `(shadow                                  ((,class (:foreground ,base01 :background ,base00))))
+       `(shadow                                  ((,class (:foreground ,blue-10 :background ,base03))))
        `(match                                   ((,class (:background ,base02))))
        `(cursor                                  ((,class (:foreground ,base03 :background ,green :invserse-video t))))
        `(mouse                                   ((,class (:foreground ,base03 :background ,base00 :inverse-video t))))
