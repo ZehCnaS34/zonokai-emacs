@@ -56,7 +56,7 @@ The theme will have to be reloded after changing options."
   "Make the fringe the same color as the active mode-line"
   :type 'boolean
   :group 'zonokai)
-(setq zk-distinct-fringe t)
+
 
 (defun in-terminal-p ()
   "Return true if in a terminal."
