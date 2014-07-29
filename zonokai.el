@@ -57,7 +57,6 @@ The theme will have to be reloded after changing options."
   :type 'boolean
   :group 'zonokai)
 
-
 (defun in-terminal-p ()
   "Return true if in a terminal."
   (not (display-graphic-p)))
@@ -249,7 +248,7 @@ Takes an optional `FRAME' as reference."
        `(font-lock-function-name-face            ((,class (:foreground ,cyan :weight bold))))
        `(font-lock-type-face                     ((,class (:foreground ,cyan))))
        `(font-lock-variable-name-face            ((,class (:foreground ,green))))
-       `(font-lock-doc-face                      ((,class (:foreground ,magenta))))
+       `(font-lock-doc-face                      ((,class (:inherit font-lock-string-face))))
        `(font-lock-warning-face                  ((,class (:foreground ,yellow :background ,base03 :underline  t :weight bold))))
 
 ;;;;;; modeline
