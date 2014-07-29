@@ -60,11 +60,12 @@ background color"
   "Create the zonokai theme.
 Takes an optional `FRAME' as reference."
   (cl-flet* ((complement (color) (color-complement-hex color))
-             (if-complement-s (color &optional fn) (if complement
-                                                       (if fn
-                                                           (funcall fn color)
-                                                         color) 
-                                                     color))
+             (if-complement-s 
+              (color &optional fn) (if complement
+                                       (if fn
+                                           (funcall fn color)
+                                         color) 
+                                     color))
              (if-complement
               (color &optional fn) (let ((complement-color (color-complement-hex color)))
                                      (if (not complement)
@@ -88,40 +89,40 @@ Takes an optional `FRAME' as reference."
 
 	   ;; base color pallet          
 	   (yellow    (if-complement "#E2D511"))    
-	   (yellow+10 (color-lighten-name yellow 20))
-	   (yellow-10 (color-darken-name yellow 20))
+	   (yellow+10 (color-lighten-name yellow   20))
+	   (yellow-10 (color-darken-name yellow    20))
      
 	   (orange    (if-complement "#FF5C40"))
-	   (orange+10 (color-lighten-name orange 20))
-	   (orange-10 (color-darken-name orange 20))
+	   (orange+10 (color-lighten-name orange   20))
+	   (orange-10 (color-darken-name orange    20))
      
 	   (brown     (if-complement "#B26800"))
-	   (brown+10  (color-lighten-name brown 20))
-	   (brown-10  (color-darken-name brown 20))
+	   (brown+10  (color-lighten-name brown    20))
+	   (brown-10  (color-darken-name brown     20))
      
 	   (red       (if-complement "#CC1514" (lambda (c) (color-darken-name c 30))))
-	   (red+10    (color-lighten-name red 20))
-	   (red-10    (color-darken-name red 20))
+	   (red+10    (color-lighten-name red      20))
+	   (red-10    (color-darken-name red       20))
      
 	   (magenta   (if-complement "#E318FF"))
 	   (magenta+10 (color-lighten-name magenta 20))
 	   (magenta-10  (color-darken-name magenta 20))
      
 	   (violet    (if-complement "#6C71C4"))
-	   (violet+10  (color-lighten-name violet 20))
-	   (violet-10  (color-darken-name violet 20))
+	   (violet+10  (color-lighten-name violet  20))
+	   (violet-10  (color-darken-name violet   20))
      
 	   (blue      (if-complement "#3D7599"))
-	   (blue+10  (color-lighten-name blue 20))
-	   (blue-10  (color-darken-name blue 20))
+	   (blue+10  (color-lighten-name blue      20))
+	   (blue-10  (color-darken-name blue       20))
      
 	   (cyan      (if-complement "#00FFDA"))
-	   (cyan+10  (color-lighten-name cyan 20))
-	   (cyan-10  (color-darken-name cyan 20))
+	   (cyan+10  (color-lighten-name cyan      20))
+	   (cyan-10  (color-darken-name cyan       20))
      
 	   (green     (if-complement "#A6E22E"))
-	   (green+10  (color-lighten-name green 20))
-	   (green-10  (color-darken-name green 20))
+	   (green+10  (color-lighten-name green    20))
+	   (green-10  (color-darken-name green     20))
      
 	   (dark-gray (if-complement "#444444"))
 	   (lite-gray (if-complement "#eeeeee"))
@@ -141,10 +142,6 @@ Takes an optional `FRAME' as reference."
 	   (rb-4 red-10)
 	   (rb-5 cyan-10)
 	   )
-
-
-
-
 
       (custom-theme-set-faces
        theme-name
