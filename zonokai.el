@@ -437,6 +437,10 @@ Takes an optional `FRAME' as reference."
        `(helm-candidate-number                   ((,class (:inherit mode-line :background ,cyan-10))))
        
 
+;;;;;; highlight indentation face
+       `(highlight-indentation-current-column-face ((,class (:background ,base03:d))))
+       `(highlight-indentation-face              ((,class (:background ,base03:d))))
+
 
 ;;;;;; whitespace-mode
        `(whitespace-space                        ((,class (:background ,base03 :foreground ,base03))))
@@ -462,15 +466,15 @@ Takes an optional `FRAME' as reference."
 ;; fill-column: 95
 ;; End:
 
-;; ;; red theme development
-;; (deftheme zonokai-red "Red version of zonokai")
-;; (create-zonokai-theme t 'zonokai-red)
-;; (provide-theme 'zonokai-red)
+;; red theme development
+(deftheme zonokai-red "Red version of zonokai")
+(create-zonokai-theme t 'zonokai-red)
+(provide-theme 'zonokai-red)
 
-;; ;; blue theme development
-;; (deftheme zonokai-blue "Blue version of zonokai")
-;; (create-zonokai-theme nil 'zonokai-blue)
-;; (provide-theme 'zonokai-blue)
+;; blue theme development
+(deftheme zonokai-blue "Blue version of zonokai")
+(create-zonokai-theme nil 'zonokai-blue)
+(provide-theme 'zonokai-blue)
 
 
 (provide 'zonokai)
