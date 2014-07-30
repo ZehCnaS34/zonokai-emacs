@@ -219,7 +219,9 @@ Takes an optional `FRAME' as reference."
        `(widget-field                            ((t (:background ,(color-darken-name base00 60) :foreground ,(color-lighten-name magenta 10)))))
 
 
-       `(variable-pitch                          ((t (:font-family "ubuntu mono"))))
+       `(variable-pitch                          ((t (:font-family "monospace"))))
+
+       `(vhl/default-face                        ((t (:background ,base00:dd :foreground ,base03:dd))))
 
 
 ;;;;;; ido
