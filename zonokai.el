@@ -200,7 +200,7 @@ Takes an optional `FRAME' as reference."
        `(button                                  ((t (:background ,base03 :foreground ,green :weight bold :underline t))))
        `(escape-glyph-face                       ((t (:foreground ,red))))
 
-       `(region                                  ((t (:background ,region :foreground "transparent"))))
+       `(region                                  ((t (:background ,region :foreground ,base00))))
        `(idle-highlight                          ((t (:foreground ,cyan :background ,blue))))
        `(hl-line                                 ((t (:background ,base02 :foreground nil))))
        `(widget-field                            ((t (:background ,(color-darken-name base00 60) :foreground ,(color-lighten-name magenta 10)))))
@@ -484,15 +484,15 @@ Takes an optional `FRAME' as reference."
 ;; fill-column: 95
 ;; End:
 
-;; ;; red theme development
-;; (deftheme zonokai-red "Red version of zonokai")
-;; (create-zonokai-theme t 'zonokai-red)
-;; (provide-theme 'zonokai-red)
+;; red theme development
+(deftheme zonokai-red "Red version of zonokai")
+(create-zonokai-theme t 'zonokai-red)
+(provide-theme 'zonokai-red)
 
-;; ;; blue theme development
-;; (deftheme zonokai-blue "Blue version of zonokai")
-;; (create-zonokai-theme nil 'zonokai-blue)
-;; (provide-theme 'zonokai-blue)
+;; blue theme development
+(deftheme zonokai-blue "Blue version of zonokai")
+(create-zonokai-theme nil 'zonokai-blue)
+(provide-theme 'zonokai-blue)
 
 
 (provide 'zonokai)
