@@ -199,6 +199,7 @@ Takes an optional `FRAME' as reference."
        `(highlight                               ((t (:background ,(color-darken-name base03 5)))))
        `(default                                 ((t (:foreground ,base00 :background ,base03))))
        `(fringe                                  ((t (:foreground ,base00 :background ,(if zk-distinct-fringe base03:d base03)))))
+       `(linum                                   ((t (:inherit     fringe))))
        `(shadow                                  ((t (:foreground ,blue-10 :background ,base03))))
        `(match                                   ((t (:background ,base02))))
        `(cursor                                  ((t (:foreground ,base03 :background ,green :invserse-video t))))
@@ -206,7 +207,7 @@ Takes an optional `FRAME' as reference."
        `(button                                  ((t (:background ,base03 :foreground ,green :weight bold :underline t))))
        `(escape-glyph-face                       ((t (:foreground ,red))))
 
-       `(region                                  ((t (:background ,region :foreground ,base00))))
+       `(region                                  ((t (:background ,region :foreground ,base00:d))))
        `(idle-highlight                          ((t (:foreground ,cyan :background ,blue))))
        `(hl-line                                 ((t (:background ,base02 :foreground nil))))
        `(widget-field                            ((t (:background ,(color-darken-name base00 60) :foreground ,(color-lighten-name magenta 10)))))
