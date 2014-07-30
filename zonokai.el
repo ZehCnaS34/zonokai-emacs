@@ -61,6 +61,14 @@ The theme will have to be reloded after changing options."
   "Return true if in a terminal."
   (not (display-graphic-p)))
 
+
+(defun do-times (v)
+  "Helper function for rainbow-* stuff. Not implemented yet"
+  (cl-labels ((t (n output)
+                 (cond ((= n 0) output)
+                       ((> n 0) (d (- n 1) (cons n output))))))
+    (t v '())))
+
 (defun quick-color (face fg &optional bg)
   "A function that generation a font face list
 so instead of writting a lot, I could do something like
