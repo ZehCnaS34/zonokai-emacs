@@ -166,14 +166,20 @@ Takes an optional `FRAME' as reference."
 
 
 	   ;; helpers
-	   (region (color-darken-name base03 10))
+	   (region (if (not (in-terminal-p)) 
+                 (color-darken-name base03 10) ;; in gui
+               base02))                        ;; in terminal
 	   (builtin orange)
 	   ;; is complement it reverts complement color to blue color
-	   (comments 
-      (if (not (in-terminal-p))
-          (if-complement-s blue+10 (lambda (c) blue-10))
-        blue))
+	   (comments (if (not (in-terminal-p))
+                   (if-complement-s blue+10 (lambda (c) blue-10)) ;; in gui
+                 blue))                                           ;; in terminal
      (strings  (if-complement-s magenta (lambda (c) green-10)))
+     
+
+     (mode-line (if (not (in-terminal-p))
+                    base03:dd
+                  blue))
 
 	   ;; rainbow scheme
 	   (rb-1 green-10)
@@ -270,7 +276,7 @@ Takes an optional `FRAME' as reference."
        `(font-lock-warning-face                  ((t (:foreground ,yellow :background ,base03 :underline  t :weight bold))))
 
 ;;;;;; modeline
-       `(mode-line                               ((t (:background  ,base03:dd :foreground ,base00 :box ,(if zk-mode-line-box `(:line-width 1 :color ,cyan-10) nil)))))
+       `(mode-line                               ((t (:background  ,mode-line :foreground ,base00 :box ,(if zk-mode-line-box `(:line-width 1 :color ,cyan-10) nil)))))
        `(mode-line-buffer-id                     ((t (:foreground ,green :weight bold))))
        `(mode-line-inactive                      ((t (:inherit mode-line :background ,base03:d :box nil))))
        `(mode-line-highlight                     ((t (:foreground ,cyan :background ,base03))))
