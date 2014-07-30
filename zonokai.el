@@ -180,6 +180,12 @@ Takes an optional `FRAME' as reference."
      (mode-line (if (not (in-terminal-p))
                     base03:dd
                   blue))
+     
+     (linum     (if (not (in-terminal-p))
+                    (if (not complement)
+                        base01:dd
+                      base02:dd)
+                  blue))
 
 	   ;; rainbow scheme
 	   (rb-1 green-10)
@@ -199,7 +205,7 @@ Takes an optional `FRAME' as reference."
        `(highlight                               ((t (:background ,(color-darken-name base03 5)))))
        `(default                                 ((t (:foreground ,base00 :background ,base03))))
        `(fringe                                  ((t (:foreground ,base00 :background ,(if zk-distinct-fringe base03:d base03)))))
-       `(linum                                   ((t (:inherit     fringe))))
+       `(linum                                   ((t (:inherit     fringe :foreground ,linum))))
        `(shadow                                  ((t (:foreground ,blue-10 :background ,base03))))
        `(match                                   ((t (:background ,base02))))
        `(cursor                                  ((t (:foreground ,base03 :background ,green :invserse-video t))))
