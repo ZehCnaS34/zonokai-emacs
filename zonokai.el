@@ -69,6 +69,16 @@ The theme will have to be reloded after changing options."
                        ((> n 0) (d (- n 1) (cons n output))))))
     (t v '())))
 
+;; (defun cycle (xs elts)
+;;   (cl-labels ((x (s e output)
+;;                  (cond ((= e 0) output)
+;;                        ((> e 0) (x (cons (car (last s)) 
+;;                                          (- 1 elts)
+;;                                          (cons (car s) output)))))))
+;;     (x xs elts '())))
+
+
+
 (defun quick-color (face fg &optional bg)
   "A function that generation a font face list
 so instead of writting a lot, I could do something like
