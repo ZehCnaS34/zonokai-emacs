@@ -42,17 +42,17 @@ The theme will have to be reloded after changing options."
   :group 'faces
   :prefix "zk-")
 
-(defcustom zk-mode-line-box t
+(defcustom zk-mode-line-box nil
   "the cyan outline around the modeline"
   :type 'boolean
   :group 'zonokai)
 
-(defcustom zk-string-italics t
+(defcustom zk-string-italics nil
   "Toggle if strings have italics"
   :type 'boolean
   :group 'zonokai)
 
-(defcustom zk-distinct-fringe nil
+(defcustom zk-distinct-fringe t
   "Make the fringe the same color as the active mode-line"
   :type 'boolean
   :group 'zonokai)
