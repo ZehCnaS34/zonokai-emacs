@@ -167,7 +167,7 @@ Takes an optional `FRAME' as reference."
 
 	   ;; helpers
 	   (region (if (not (in-terminal-p)) 
-                 (color-darken-name base03 10) ;; in gui
+                 base03:dd
                base02))                        ;; in terminal
 	   (builtin orange)
 	   ;; is complement it reverts complement color to blue color
@@ -392,7 +392,7 @@ Takes an optional `FRAME' as reference."
 
 
 ;;;;;; erm
-       `(erm-sym-errline                         ((t (:foreground ,cyan :background ,orange))))
+       `(erm-sym-errline                         ((t (:foreground ,base03:dd :background ,orange-10))))
 
 ;;;;;; rhtml-mode
        `(erb-out-delim-face                      ((t (:foreground ,magenta+10 :background ,base03:d))))
@@ -411,6 +411,10 @@ Takes an optional `FRAME' as reference."
 ;;;;;; header line
        `(header-line                             ((t (:background ,base02 :foreground ,base00))))
 
+
+;;;;;; tooling
+       `(tooltip                                 ((t (:background ,cyan-10 :foreground ,base03:dd))))
+
 ;;;;;; Compnay
        `(company-tooltip                         ((t (:foreground ,base01:d :background ,base03:d))))
        `(company-tooltip-selection               ((t (:foreground ,base02 :background ,base01))))
@@ -419,9 +423,15 @@ Takes an optional `FRAME' as reference."
        `(company-tooltip-common-selection        ((t (:background ,base01:d :foreground ,magenta :weight bold :underline t))))
        `(company-scrollbar-fg                    ((t (:background ,blue+10))))
        `(company-scrollbar-bg                    ((t (:background ,blue-10))))
-       `(company-preview                         ((t (:background ,cyan+10))))
+       `(company-preview                         ((t (:background ,cyan+10 :foreground ,base02:dd))))
        `(company-preview-common                  ((t (:background ,base03))))
        `(company-echo-common                     ((t (:foreground ,yellow))))
+
+
+
+;;;;;; ediff
+       `(ediff-current-diff-Ancestor             ((t (:foreground ,base03 :background ,magenta))))
+       ;;; going to be ediff stuff here
 
 
 ;;;;;; eshell
