@@ -392,7 +392,7 @@ Takes an optional `FRAME' as reference."
 ;;;;;; egg 
        `(egg-diff-del                            ((t (:inherit magit-diff-del))))
        `(egg-diff-add                            ((t (:inherit magit-diff-add))))
-       `(egg-diff-conflict                            ((t (:inherit magit-diff-none))))
+       `(egg-diff-conflict                       ((t (:background ,magenta-10 :foreground ,magenta+10))))
 ;;;;;; erm
        `(erm-sym-errline                         ((t (:foreground ,base03:dd :background ,orange-10))))
 
