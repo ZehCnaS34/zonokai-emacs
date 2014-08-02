@@ -389,8 +389,10 @@ Takes an optional `FRAME' as reference."
        `(magit-log-reflog-label-checkout         ((t (:background ,green-10 :foreground ,base03 :box (:line-width 1 :color ,green+10)))))
        `(magit-log-reflog-label-merge            ((t (:background ,magenta-10 :foreground ,base03 :box (:line-width 1 :color ,magenta+10)))))
 
-
-
+;;;;;; egg 
+       `(egg-diff-del                            ((t (:inherit magit-diff-del))))
+       `(egg-diff-add                            ((t (:inherit magit-diff-add))))
+       `(egg-diff-conflict                            ((t (:inherit magit-diff-none))))
 ;;;;;; erm
        `(erm-sym-errline                         ((t (:foreground ,base03:dd :background ,orange-10))))
 
