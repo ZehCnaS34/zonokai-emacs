@@ -115,13 +115,13 @@ Takes an optional `FRAME' as reference."
 	   (base00    (if-complement "#eee"   ))
 
      ;; base derived tones
-     (base03:d (color-darken-name base03 3))
+     (base03:d  (color-darken-name base03 3))
      (base03:dd (color-darken-name base03:d 6))
-     (base02:d (color-darken-name base02 3))
+     (base02:d  (color-darken-name base02 3))
      (base02:dd (color-darken-name base02:d 6))
-     (base01:d (color-darken-name base01 3))
+     (base01:d  (color-darken-name base01 3))
      (base01:dd (color-darken-name base01:d 6))
-     (base00:d (color-darken-name base00 3))
+     (base00:d  (color-darken-name base00 3))
      (base00:dd (color-darken-name base00:d 6))
 
 	   ;; base color pallet          
@@ -164,19 +164,18 @@ Takes an optional `FRAME' as reference."
 	   (dark-gray (if-complement "#444444"))
 	   (lite-gray (if-complement "#eeeeee"))
 
-
 	   ;; helpers
 	   (region (if (not (in-terminal-p)) 
                  base03:dd
                base02))                        ;; in terminal
 	   (builtin orange)
 	   ;; is complement it reverts complement color to blue color
-	   (comments (if (not (in-terminal-p))
-                   (if-complement-s blue+10 (lambda (c) blue-10)) ;; in gui
+	   (comments  (if (not (in-terminal-p))
+                    (if-complement-s blue+10 (lambda (c) blue-10)) ;; in gui
                  blue))                                           ;; in terminal
-     (strings  (if-complement-s magenta (lambda (c) green-10)))
+     (strings   (if-complement-s magenta (lambda (c) green-10)))
      
-
+     
      (mode-line (if (not (in-terminal-p))
                     base03:dd
                   blue))
@@ -212,13 +211,10 @@ Takes an optional `FRAME' as reference."
        `(mouse                                   ((t (:foreground ,base03 :background ,base00 :inverse-video t))))
        `(button                                  ((t (:background ,base03 :foreground ,green :weight bold :underline t))))
        `(escape-glyph-face                       ((t (:foreground ,red))))
-
        `(region                                  ((t (:background ,region :foreground ,base00:d))))
        `(idle-highlight                          ((t (:foreground ,cyan :background ,blue))))
        `(hl-line                                 ((t (:background ,base02 :foreground nil))))
        `(widget-field                            ((t (:background ,(color-darken-name base00 60) :foreground ,(color-lighten-name magenta 10)))))
-
-
        `(variable-pitch                          ((t (:font-family "monospace"))))
 
        `(vhl/default-face                        ((t (:background ,base00:dd :foreground ,base03:dd))))
@@ -324,7 +320,7 @@ Takes an optional `FRAME' as reference."
        `(rainbow-delimiters-depth-11-face        ((t (:foreground ,rb-1))))
        `(rainbow-delimiters-depth-12-face        ((t (:foreground ,rb-2))))
        `(rainbow-delimiters-unmatched-face       ((t (:foreground ,red :background ,base03 :inverse-video t))))
-       `(rainbow-delimiters-mismatched-face       ((t (:foreground ,base00 :background ,base03 :inverse-video t))))
+       `(rainbow-delimiters-mismatched-face      ((t (:foreground ,base00 :background ,base03 :inverse-video t))))
 
 
 ;;;;;; column enforce
@@ -390,9 +386,18 @@ Takes an optional `FRAME' as reference."
        `(magit-log-reflog-label-merge            ((t (:background ,magenta-10 :foreground ,base03 :box (:line-width 1 :color ,magenta+10)))))
 
 ;;;;;; egg 
+       `(agg-branch                              ((t (:inherit egg-header :foreground ,yellow :height 1.1))))
        `(egg-diff-del                            ((t (:inherit magit-diff-del))))
        `(egg-diff-add                            ((t (:inherit magit-diff-add))))
        `(egg-diff-conflict                       ((t (:background ,magenta-10 :foreground ,magenta+10))))
+       `(egg-help-key                            ((t (:foreground ,yellow+10))))
+       `(egg-text-help                           ((t (:foreground ,blue))))
+       `(egg-help-header-1                       ((t (:inherit egg-text-base :foreground ,blue))))
+       `(egg-help-header-2                       ((t (:inherit egg-text-1 :foreground ,cyan-10 :height .9))))
+       `(egg-section-title                       ((t (:inherit egg-header :height 1.1 :foreground ,green))))
+       `(egg-diff-file-header                    ((t (:inherit egg-header :foreground ,magenta-10))))
+
+
 ;;;;;; erm
        `(erm-sym-errline                         ((t (:foreground ,base03:dd :background ,orange-10))))
 
@@ -401,22 +406,14 @@ Takes an optional `FRAME' as reference."
        `(erb-out-face                            ((t (:inherit erb-out-delim-face :foreground ,blue+10))))
        `(erb-exec-delim-face                      ((t (:foreground ,red+10 :background ,base03:d))))
        `(erb-exec-face                           ((t (:inherit erb-exec-delim-face))))
-
-
 ;;;;;; js2
        `(js2-function-call                       ((t (:foreground ,cyan))))
-
 ;;;;;; sp pair overlay face
        `(sp-pair-overlay-face                    ((t (:background ,base03))))
-
-
 ;;;;;; header line
        `(header-line                             ((t (:background ,base02 :foreground ,base00))))
-
-
 ;;;;;; tooling
        `(tooltip                                 ((t (:background ,cyan-10 :foreground ,base03:dd))))
-
 ;;;;;; Compnay
        `(company-tooltip                         ((t (:foreground ,base01:d :background ,base03:d))))
        `(company-tooltip-selection               ((t (:foreground ,base02 :background ,base01))))
