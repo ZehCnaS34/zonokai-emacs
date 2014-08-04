@@ -396,6 +396,7 @@ Takes an optional `FRAME' as reference."
        `(egg-help-header-2                       ((t (:inherit egg-text-1 :foreground ,cyan-10 :height .9))))
        `(egg-section-title                       ((t (:inherit egg-header :height 1.1 :foreground ,green))))
        `(egg-diff-file-header                    ((t (:inherit egg-header :foreground ,magenta-10))))
+       ;;        `(egg-log-HEAD-name                       ((t (:))))
 
 
 ;;;;;; erm
