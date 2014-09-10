@@ -23,9 +23,9 @@
 
 ;;; Commentary:
 ;;
-;; A blue theme for emacs. Inspired by monokai but took a different lot turns 
-;; along the development path. 
-;; 
+;; A blue theme for emacs. Inspired by monokai but took a different lot turns
+;; along the development path.
+;;
 ;;; Code:
 
 
@@ -72,7 +72,7 @@ The theme will have to be reloded after changing options."
 ;; (defun cycle (xs elts)
 ;;   (cl-labels ((x (s e output)
 ;;                  (cond ((= e 0) output)
-;;                        ((> e 0) (x (cons (car (last s)) 
+;;                        ((> e 0) (x (cons (car (last s))
 ;;                                          (- 1 elts)
 ;;                                          (cons (car s) output)))))))
 ;;     (x xs elts '())))
@@ -93,21 +93,21 @@ background color"
   "Create the zonokai theme.
 Takes an optional `FRAME' as reference."
   (cl-flet* ((complement (color) (color-complement-hex color))
-             (if-complement-s 
+             (if-complement-s
               (color &optional fn) (if complement
                                        (if fn
                                            (funcall fn color)
-                                         color) 
+                                         color)
                                      color))
              (if-complement
               (color &optional fn) (let ((complement-color (color-complement-hex color)))
                                      (if (not complement)
                                          color
                                        (if fn
-                                           (funcall fn complement-color) 
+                                           (funcall fn complement-color)
                                          complement-color)))))
     (let* ((class '((class color) (min-colors 256)))
-           ;; background tones 
+           ;; background tones
            (base03    (if-complement "#011827"))
            (base02    (if-complement "#023658"))
            ;; content tones
@@ -124,48 +124,48 @@ Takes an optional `FRAME' as reference."
      (base00:d  (color-darken-name base00 3))
      (base00:dd (color-darken-name base00:d 6))
 
-	   ;; base color pallet          
-	   (yellow    (if-complement "#E2D511"))    
+	   ;; base color pallet
+	   (yellow    (if-complement "#E2D511"))
 	   (yellow+10 (color-lighten-name yellow   20))
 	   (yellow-10 (color-darken-name yellow    20))
-     
+
 	   (orange    (if-complement "#FF5C40"))
 	   (orange+10 (color-lighten-name orange   20))
 	   (orange-10 (color-darken-name orange    20))
-     
+
 	   (brown     (if-complement "#B26800"))
 	   (brown+10  (color-lighten-name brown    20))
 	   (brown-10  (color-darken-name brown     20))
-     
+
 	   (red       (if-complement "#CC1514" (lambda (c) (color-darken-name c 30))))
 	   (red+10    (color-lighten-name red      20))
 	   (red-10    (color-darken-name red       20))
-     
+
 	   (magenta   (if-complement "#E318FF"))
 	   (magenta+10 (color-lighten-name magenta 20))
 	   (magenta-10  (color-darken-name magenta 20))
-     
+
 	   (violet    (if-complement "#6C71C4"))
 	   (violet+10  (color-lighten-name violet  20))
 	   (violet-10  (color-darken-name violet   20))
-     
+
 	   (blue      (if-complement "#3D7599"))
 	   (blue+10  (color-lighten-name blue      20))
 	   (blue-10  (color-darken-name blue       20))
-     
+
 	   (cyan      (if-complement "#00FFDA"))
 	   (cyan+10  (color-lighten-name cyan      20))
 	   (cyan-10  (color-darken-name cyan       20))
-     
+
 	   (green     (if-complement "#A6E22E"))
 	   (green+10  (color-lighten-name green    20))
 	   (green-10  (color-darken-name green     20))
-     
+
 	   (dark-gray (if-complement "#444444"))
 	   (lite-gray (if-complement "#eeeeee"))
 
 	   ;; helpers
-	   (region (if (not (in-terminal-p)) 
+	   (region (if (not (in-terminal-p))
                  base03:dd
                base02))                        ;; in terminal
 	   (builtin orange)
@@ -174,12 +174,12 @@ Takes an optional `FRAME' as reference."
                     (if-complement-s blue+10 (lambda (c) blue-10)) ;; in gui
                  blue))                                           ;; in terminal
      (strings   (if-complement-s magenta (lambda (c) green-10)))
-     
-     
+
+
      (mode-line (if (not (in-terminal-p))
                     base03:dd
                   blue))
-     
+
      (linum     (if (not (in-terminal-p))
                     (if (not complement)
                         base01:dd
@@ -196,13 +196,14 @@ Takes an optional `FRAME' as reference."
 
       (custom-theme-set-faces
        theme-name
-       
+
        ;; basic coloring
 
        `(link                                    ((t (:foreground ,cyan))))
        `(link-visited                            ((t (:foreground ,green))))
        `(highlight                               ((t (:background ,(color-darken-name base03 5)))))
-       `(default                                 ((t (:foreground ,base00 :background ,base03))))
+       `(default                                 ((t (:foreground ,base00 :background ,base03))
+                                                  (,class (:foreground ,base00 :background "black"))))
        `(fringe                                  ((t (:foreground ,base00 :background ,(if zk-distinct-fringe base03:d base03)))))
        `(linum                                   ((t (:inherit     fringe :foreground ,linum))))
        `(shadow                                  ((t (:foreground ,blue-10 :background ,base03))))
@@ -279,6 +280,12 @@ Takes an optional `FRAME' as reference."
        `(font-lock-variable-name-face            ((t (:foreground ,green))))
        `(font-lock-doc-face                      ((t (:inherit font-lock-string-face))))
        `(font-lock-warning-face                  ((t (:foreground ,yellow :background ,base03 :underline  t :weight bold))))
+       `(font-lock-regexp-grouping-construct ((t (:foreground ,yellow :weight bold))))
+       `(font-lock-regexp-grouping-backslash ((t (:foreground ,green :weight bold))))
+       `(font-lock-negation-char-face ((t (:foreground ,yellow :weight bold))))
+       `(font-lock-preprocessor-face ((t (:foreground ,blue+10))))
+
+
 
 ;;;;;; modeline
        `(mode-line                               ((t (:background  ,mode-line :foreground ,base00 :box ,(if zk-mode-line-box `(:line-width 1 :color ,cyan-10) nil)))))
@@ -336,7 +343,7 @@ Takes an optional `FRAME' as reference."
        `(git-gutter-fr:added                     ((t (:inherit git-gutter+-added))))
        `(git-gutter-fr:deleted                   ((t (:inherit git-gutter+-deleted))))
        `(git-gutter-fr:modified                  ((t (:inherit git-gutter+-modified))))
-       
+
 ;;;;;; isearch
        `(isearch                                 ((t (:foreground ,base03 :background ,green :weight bold))))
        `(isearch-fail                            ((t (:foreground ,base03 :background ,red :weight bold))))
@@ -385,7 +392,7 @@ Takes an optional `FRAME' as reference."
        `(magit-log-reflog-label-checkout         ((t (:background ,green-10 :foreground ,base03 :box (:line-width 1 :color ,green+10)))))
        `(magit-log-reflog-label-merge            ((t (:background ,magenta-10 :foreground ,base03 :box (:line-width 1 :color ,magenta+10)))))
 
-;;;;;; egg 
+;;;;;; egg
        `(agg-branch                              ((t (:inherit egg-header :foreground ,yellow :height 1.1))))
        `(egg-diff-del                            ((t (:inherit magit-diff-del))))
        `(egg-diff-add                            ((t (:inherit magit-diff-add))))
@@ -397,7 +404,7 @@ Takes an optional `FRAME' as reference."
        `(egg-section-title                       ((t (:inherit egg-header :height 1.1 :foreground ,green))))
        `(egg-diff-file-header                    ((t (:inherit egg-header :foreground ,magenta-10))))
        `(egg-log-HEAD-name                       ((t (:inherit egg-branch-mono :box (:line-width 1 :color ,base00) :foreground ,yellow+10))))
-       
+
 
 
 ;;;;;; erm
@@ -419,7 +426,8 @@ Takes an optional `FRAME' as reference."
 ;;;;;; Compnay
        `(company-tooltip                         ((t (:foreground ,base01:d :background ,base03:d))))
        `(company-tooltip-selection               ((t (:foreground ,base02 :background ,base01))))
-       `(company-tooltip-mouse                   ((t (:background ,cyan-10))))
+       `(company-tooltip-mouse                   ((t (:background ,cyan-10))
+                                                  (,class (:background ,cyan-10))))
        `(company-tooltip-common                  ((t (:foreground ,cyan-10 :background ,base03:d ))))
        `(company-tooltip-common-selection        ((t (:background ,base01:d :foreground ,magenta :weight bold :underline t))))
        `(company-scrollbar-fg                    ((t (:background ,blue+10))))
@@ -479,7 +487,7 @@ Takes an optional `FRAME' as reference."
        `(helm-selection                          ((t (:foreground ,base02:d :background ,green))))
        `(helm-header                             ((t (:foreground ,base00 :background ,blue-10 :height 1.2))))
        `(helm-candidate-number                   ((t (:inherit mode-line :background ,cyan-10))))
-       
+
 
 ;;;;;; highlight indentation face
        `(highlight-indentation-current-column-face ((t (:background ,base03:d))))
@@ -523,6 +531,3 @@ Takes an optional `FRAME' as reference."
 
 (provide 'zonokai)
 ;;; zonokai.el ends here
-
-
-
