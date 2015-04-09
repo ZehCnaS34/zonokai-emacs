@@ -33,7 +33,7 @@
 (require 'dash)
 (require 'color)
 
-(unless (>= 24 emacs-major-version)
+(unless (<= 24 emacs-major-version)
   (error "The Zonokai theme requires Emacs 24 or later!"))
 
 (defgroup zonokai nil
