@@ -10,7 +10,7 @@ btw, I still like the blue theme better.
 This theme is made for emacs 24 and up.
 
 ## Installing
-This theme is available on [MELPA](http://melpa.milkbox.net) package.el
+This theme is available on [MELPA](https://melpa.org/) package.el
 If you don't have that repo, add it and then run a.
 
 `M-x package-install zonokai-theme`
