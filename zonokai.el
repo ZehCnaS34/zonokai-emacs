@@ -227,6 +227,9 @@ Takes an optional `FRAME' as reference."
        `(ido-incomplete-regexp                   ((t (:foreground ,red :underline t :weight bold))))
        `(ido-only-match                          ((t (:foreground ,cyan :weight bold))))
 
+;;;;;; Smart Mode Line
+       
+
 
 ;;;;;; custom
        `(custom-button                           ((t (:background ,(color-darken-name base03 40) :foreground ,(color-lighten-name base00 10)))))
@@ -492,6 +495,10 @@ Takes an optional `FRAME' as reference."
 ;;;;;; highlight indentation face
        `(highlight-indentation-current-column-face ((t (:background ,base03:d))))
        `(highlight-indentation-face              ((t (:background ,base03:d))))
+
+;;;;;; julia
+       `(julia-macro-face                        ((t (:foreground ,yellow+10))))
+       `(julia-quoted-symbol-face                ((t (:foreground ,red+10))))
 
 
 ;;;;;; whitespace-mode
