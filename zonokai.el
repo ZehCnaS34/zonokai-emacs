@@ -228,7 +228,7 @@ Takes an optional `FRAME' as reference."
        `(ido-only-match                          ((t (:foreground ,cyan :weight bold))))
 
 ;;;;;; Smart Mode Line
-       
+
 
 
 ;;;;;; custom
@@ -286,7 +286,7 @@ Takes an optional `FRAME' as reference."
        `(font-lock-regexp-grouping-construct ((t (:foreground ,yellow :weight bold))))
        `(font-lock-regexp-grouping-backslash ((t (:foreground ,green :weight bold))))
        `(font-lock-negation-char-face ((t (:foreground ,yellow :weight bold))))
-       `(font-lock-preprocessor-face ((t (:foreground ,blue+10))))
+       `(font-lock-preprocessor-face ((t (:foreground ,blue-10))))
 
 
 
